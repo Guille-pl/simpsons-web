@@ -1,0 +1,104 @@
+/*propiedades de los 3 divs que contrienen los divs con el contenido*/
+.cartas{
+    display: inline-block;
+    width: 100%;
+    padding: 40px 30px;
+}
+
+/*propiedades de los divs que contienen los elementos*/
+.contenido{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid black;
+}
+
+/*propiedades de los divs que saldran al hacer hover encima de los elementos*/
+.cartas .hover{
+    width: inherit;
+    height: inherit;
+    background-color: rgba(225,225,225,0.8);
+    line-height: 232px;
+    opacity: 0;
+}
+
+/*cambio la opacidad del .hover a 1 al hacer hover por encima de .contenido*/
+.contenido:hover .hover{
+    opacity: 1;    
+}
+
+/*propiedades de las imagenes (portadas)*/
+.portada1,.portada2,.portada3{
+    width: inherit;
+    height: 232px;
+    background-size: cover;
+}
+
+.portada1{
+    background-image: url('../Imagenes/inicio/peliculas_portada.jpg');
+}
+
+.portada2{
+    background-image: url('../Imagenes/inicio/serie_portada.jpg');
+}
+
+.portada3{
+    background-image: url('../Imagenes/inicio/videojuegos_portada.jpg');
+}
+
+/*propiedades de las imagenes(textos) de encima de las portadas*/
+.hover img{
+    transform: translate(0%, 50%);
+    padding: 0 20px;
+    width: 100%;
+}
+
+/*propiedades especificas del texto en ingles de la portada 1*/
+.portada1 .EN{
+    padding: 0 100px;
+}
+
+/*propiedades especificas del texto en ingles de la portada 2*/
+.portada2 img{
+    padding: 0 110px;
+}
+
+/*propiedades de los divs que contienen el texto*/
+.textos{
+    padding: 20px;
+    border-top: 1px solid black;
+}
+
+/*propiedades de los textos*/
+.cartas p{
+    margin: 0;
+    padding: 0;
+}
+
+/*propiedades de los botones de leer mas*/
+.cartas a{
+    background-color: cornsilk;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 30px;
+    border-radius: 10%;
+    color: black;
+    border: 1px solid black;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*oculto los elementos de texto que esten en ingles*/
+.EN, .cartas .EN{
+    display: none;
+}
+
+/*establezco las propiedades del header que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    
+    /*propiedades de los 3 divs que contrienen los divs con el contenido*/
+    .cartas{
+        width: 33.14%;
+        padding: 80px 30px 50px 30px;
+    }
+}

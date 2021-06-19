@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--Defino el tamaño del viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpsons</title>
+    <!--CSS en el que esta la "plantilla de todas las paginas" (header, menu, fondo, footer)-->
+    <link href="../CSS/CSS_Plantilla.css" rel="stylesheet">
+    <!--CSS en el que estan las propiedades de la pagina de serie-->
+    <link href="../CSS/CSS_Serie.css" rel="stylesheet">
+    <!--CSS externo con el que llamo a los iconos de redes sociales-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Imagen que aparecera en la pestaña de la pagina en el navegador y en los marcadores -->
+    <link rel="icon"  href="../Imagenes/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------HEADER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <header>
+        <a id="a_header" href="inicio.html">
+            <!--este div lo hago unicamente para falsear el fondo del logo, al tratarse este de un png, homer se ve
+            detras del mismo por las partes alpha, por lo que necesito crear un fondo para el logo y asi falsear esa
+            parte alfa del logo-->
+            <div id="fondo_logo"> 
+                <img id="logo_header" src="../Imagenes/logo.png" alt="logo los simpsons">
+            </div>
+        </a>
+        <p id="texto_header">Simpsons @ gmail.com <br> +34901234567</p>
+        <img id="gif_homer" src="../Imagenes/gif_homer.gif" alt="gif de homer">
+    </header>
+    
+    <!---------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------ESTRELLAS---------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--uso la etiqueta section para agrupar los divs que contendran las estrellas del fondo-->
+    <section> 
+        <div id="estrellas1"><span class="span1"></span></div>
+        <div id="estrellas2"><span class="span1"></span></div>
+        <div id="estrellas3"><span class="span1"></span></div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------MENUS Y CONTENIDO------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!--Este div lo creo unicamente para que los menus con posicion sticky se mantengan una vez se sobrepasa
+    el 100% del viewport. Si no hiciese este div, los menus sticky desaparecerian tras sobrepasar con el scroll
+    el tamaño de la pantalla-->
+    <div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------MENUS VER Y HOR-------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+        
+        <!--Este div lo creo ya que a los menus no puedo darles position sticky y absolute al mismo tiempo, por 
+        eso meto a ambos en este div, al cual le doy position sticky ( para que siemre aparezca por pantalla), y 
+        a los menus que se encuentran dentro del mismo, les doy position absolute, para que no afecten al resto 
+        de elementos de la pagina-->
+        <div id="menusHyV">
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------MENU HOR (NAVBAR)------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--div en el que se encuentran la lista de los links para recorrer la web y el boton de ajustes-->
+            <div id="menuH">
+                <ul class="ul_menuH">
+                    <li>
+                        <a href="inicio.html" id="a_menuH_activo">
+                            <i class="fa fa-home i_menuH"></i>
+                            <p class="ESP"> Inicio</p>
+                            <p class="EN"> Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="cronologia.html" class="a_menuH">
+                            <i class="fa fa-clock-o i_menuH"></i>
+                            <p class="ESP"> Cronologia</p>
+                            <p class="EN"> Chronology</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="personajes.html" class="a_menuH">
+                            <i class="fa fa-user-o i_menuH"></i>
+                            <p class="ESP"> Personajes</p>
+                            <p class="EN"> Characters</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="curiosidades.html" class="a_menuH">
+                            <i class="fa fa-question-circle-o i_menuH"></i>
+                            <p class="ESP"> Curiosidades</p>
+                            <p class="EN"> Curiosities</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="contacto.html" class="a_menuH">
+                            <i class="fa fa-envelope-o i_menuH"></i>
+                            <p class="ESP"> Contacto</p>
+                            <p class="EN"> Contact</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div id="navAjustes" onclick="ajustes()">
+                    <i class="fa fa-cog"></i>
+                </div>
+
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------AJUSTES----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--creo un div en el que se encontraran las opciones de cambio de idioma y modo noche o dia, el cual
+            tendra position absolute, y a su vez será sticky, al igual que el menu vertical-->
+            <div id="contenedor_Ajustes">
+                <div onclick="modoNyD()">
+                    <p class="ESP">Modo - </p>
+                    <p class="EN">Mode - </p>
+                    <i id="icono_NyD" class="fa fa-sun-o"></i>
+                </div>
+                <img id="bandera1" onclick="cambioIdioma(false), buscador(false)" src="../Imagenes/bandera_esp.png" alt="bandera española">
+                <img id="bandera2" onclick="cambioIdioma(true), buscador(true)" src="../Imagenes/bandera_en.png" alt="bandera inglesa">
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------MENU VER----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--necesito crearme un div en el que meto tanto el menuV como el boton que lo oculta, para que al
+            darle al boton, no se oculte el boton, si no que cambie de position con respecto al display del menuV-->
+            <div id="contenedor_menuV">
+                <div id="menuV">
+                    <ol class="ESP">
+                        <li><a href="#1">Los Simpsons: Serie</a></li>
+                        <li><a href="#2">Episodios</a></li>
+                    </ol>
+                    <ol class="EN">
+                        <li><a href="#a">The Simpsons: Serie</a></li>
+                        <li><a href="#b">Episodes</a></li>
+                    </ol>
+                </div>
+                <div id="boton_menuV" onclick="menu_vertical()"><i class="fa fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------CONTENIDO----------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+
+        <div id="contenedor">
+            <!--creo el contenedor (caja negra)-->
+            <div class="contenido parrafo">
+                <h1 class="ESP" id="1">Los Simpsons: Serie</h1>
+                <h1 class="EN" id="a">The Simpsons: Serie</h1>
+                <p class="ESP">Los Simpson es una serie estadounidense de comedia, en formato de animación, creada
+                    por Matt Groening para Fox Broadcasting Company y emitida en letios países del mundo. La serie 
+                    es una sátira de la sociedad estadounidense que narra la vida y el día a día de una familia de 
+                    clase media de ese país (cuyos miembros son Homer, Marge, Bart, Lisa y Maggie Simpson) que vive 
+                    en un pueblo ficticio llamado Springfield.
+                    <br><br>
+                    La familia fue concebida por Groening y poco después debutó en una serie de cortos de animación 
+                    producidos por James L. Brooks.​ Groening creó una familia disfuncional y nombró a sus personajes 
+                    en honor a los miembros de su propia familia, sustituyendo su propio nombre por Bart. Los cortos 
+                    pasaron a formar parte de El show de Tracey Ullman el 19 de abril de 1987, pero después de tres 
+                    temporadas se decidió convertirlos en una serie de episodios de media hora en horario de máxima 
+                    audiencia. Constituyó un éxito de la cadena Fox y fue la primera serie de este canal en llegar a 
+                    estar entre los 30 programas más vistos en la temporada 1992-1993 en Estados Unidos.
+                    <br><br>
+                    Desde su debut el 17 de diciembre de 1989, se han emitido más de 600 episodios, habiendo finalizado 
+                    su trigésima temporada. En el final de la decimoctava temporada, el 20 de mayo de 2007, se emitió 
+                    en Estados Unidos el episodio 400: You Kent Always Say What You Want. En la mayoría del mundo los 
+                    días 26 y 27 de julio de 2007 se estrenó Los Simpson: la película, la cual recaudó cerca de 526
+                    millones de dólares en todo el mundo.
+                </p>
+                <p class="EN">The Simpsons is an American comedy series, in animation format, created
+                    by Matt Groening for Fox Broadcasting Company and broadcast in several countries of the world. The Serie
+                    it is a satire of the American society that tells the life and the daily life of a family of
+                    middle class of that country (whose members are Homer, Marge, Bart, Lisa and Maggie Simpson) who lives
+                    in a fictional town called Springfield.
+                    <br><br>
+                    The family was conceived by Groening and shortly after debuted in a series of animated shorts
+                    produced by James L. Brooks. Groening created a dysfunctional family and named his characters
+                    in honor of the members of his own family, replacing his own name with Bart. The shorts
+                    they became part of The Tracey Ullman show on April 19, 1987, but after three
+                    seasons it was decided to turn them into a series of half-hour episodes in peak hours
+                    audience. It was a success of the Fox chain and was the first series of this channel to reach
+                    being among the 30 most watched programs in the 1992-1993 season in the United States.
+                    <br><br>
+                    Since its debut on December 17, 1989, more than 600 episodes have been broadcast, having finished
+                    His thirtieth season. At the end of the eighteenth season, on May 20, 2007, it was aired
+                    in the United States episode 400: You Kent always says what you want. In most of the world the
+                    On July 26 and 27, 2007 The Simpsons premiered: the film, which raised about 526
+                    millions of dollars worldwide.
+                </p>
+
+                <hr>
+                
+                <h2 class="ESP" id="2">Episodios</h2>
+                <h2 class="EN" id="b">Episodes</h2>
+
+                <!--Barra de busqueda-->
+                <input type="text" id="buscador" name="buscador" placeholder="Busca un episodio...">
+                <!--Tabla con los capitulos-->
+                <div class="tabla">
+                    <table class="lista">
+                        <tr>
+                            <th>
+                                <p class="ESP">Nº de episodio</p>
+                                <p class="EN">Episode number</p>
+                            </th>
+                            <th>
+                                <p class="ESP">Episodio</p>
+                                <p class="EN">Episoder</p>
+                            </th> 
+                            <th>
+                                <p>Director</p>
+                            </th>
+                            <th>
+                                <p class="ESP">Fecha de emisión</p>
+                                <p class="EN">Emision date</p>
+                            </th>
+                        </tr>
+                        <tr class="episodios">
+                            <td>1</td>
+                            <td>«Simpsons Roasting on an Open Fire»</td>
+                            <td>David Silverman</td>
+                            <td>17-12-1989</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>2</td>
+                            <td>«Bart the Genius»</td>
+                            <td>David Silverman</td>
+                            <td>14-1-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>3</td>
+                            <td>«Homer's Odyssey»</td>
+                            <td>Wesley Archer</td>
+                            <td>21-1-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>4</td>
+                            <td>«There's No Disgrace Like Home»</td>
+                            <td>Kent Butterworth</td>
+                            <td>28-1-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>5</td>
+                            <td>«Bart the General»</td>
+                            <td>David Silverman</td>
+                            <td>4-2-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>6</td>
+                            <td>«Moaning Lisa»</td>
+                            <td>Wesley Archer</td>
+                            <td>11-2-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>7</td>
+                            <td>«The Call of the Simpsons»</td>
+                            <td>Wesley Archer</td>
+                            <td>18-2-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>8</td>
+                            <td>«The Telltale Head»</td>
+                            <td>Rich Moore</td>
+                            <td>25-2-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>9</td>
+                            <td>«Life on the Fast Lane»</td>
+                            <td>David Silverman</td>
+                            <td>18-3-1990</td>
+                        </tr>
+                        <tr class="episodios">
+                            <td>10</td>
+                            <td>«Homer's Night Out»</td>
+                            <td>Rich Moore</td>
+                            <td>25-3-1990</td>
+                        </tr>
+                    </table>
+                </div>                
+                                
+            </div>
+        </div>
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------FOOTER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <img class="imagen_footer" src="../Imagenes/footer.png" alt="pie de pagina">
+        <div id="contenido_footer">
+            <img class="imagen_footer" src="../Imagenes/footer_fade.png" alt="pie de pagina">
+            <ul class="ul_footer">
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.facebook.com/">
+                        <!--Utilizo la etiqueta i para meter los iconos, a los cuales trato como texto-->
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.instagram.com/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://twitter.com/">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.youtube.com/">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="copyright_texto">© 2018 Copyright: Guille & Juanjo</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------SCRIPTS----------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--Script en el que estan las funciones de los elementos de la plantilla-->
+    <script src="../Scripts/Plantilla.js"></script>
+
+    <!--Script en el que esta la funcion del buscador de capitulos en la pagina de serie-->
+    <script src="../Scripts/Serie.js"></script>
+
+</body>
+</html>

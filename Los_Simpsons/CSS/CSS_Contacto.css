@@ -1,0 +1,146 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 95%;
+    border: 1px solid black;
+    color: white;
+    padding: 0 40px 30px 40px;
+}
+
+.ESP{
+    display: inline-block;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+.contenido h1{
+    width: 100%;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*propiedades del contenedor del formulario*/
+.formulario{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+/*propiedades de lo stitulos de cada barra del formulario*/
+.formulario .titulos{
+    padding: 40px 0 0 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/*propiedades de los textos de alerta(solo salen cuando no se introduce nada en sus inputs correspondientes)*/
+.formulario .alerta{
+    margin: 0 0 10px 0;
+    padding-left: 10px;
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+/*propiedades de todos los inputs del formulario*/
+.formulario input{
+    width: 100%;
+    border-radius: 20px;
+    border: 0;
+    padding: 5px 10px;
+}
+
+/*propiedades del textarea de sugerencias*/
+.formulario textarea{
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    height: 300px;
+}
+
+/*propiedades del contenedor que tiene en su interior todos los elementos del captcha*/
+.formulario .pruebaCaptcha{
+    margin-top: 70px;
+    position: relative;
+}
+
+/*propiedades del div que contiene las imagenes del captcha*/
+.formulario .pruebaCaptcha .contenedorImg{
+    background-image: url('../Imagenes/contacto/captcha1.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    width: 340px;
+    height: 134px;
+    margin: 0 auto;
+}
+
+/*propiedades del input del captcha*/
+.formulario #captcha{
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 0;
+    padding: 5px 10px;
+    width: 80%;
+    margin-left: 2%;
+} 
+
+/*propiedades del boton de reload del captcha*/
+.formulario .reloadImg{
+    bottom: -5px;
+    font-size: 20px;
+    right: 10px;
+    position: absolute;
+    cursor: pointer;
+    transition: .5s;
+    border: 2px solid white;
+    padding: 5px 8px;
+    border-radius: 20px;
+}
+
+/*animacion del boton de reload del captcha*/
+.formulario .reloadImg:hover{
+    transform: rotateZ(90deg);
+}
+
+/*propiedades del boton de enviar formulario (aparece solo cuando se completa el captcha)*/
+.formulario .enviar{
+    width: 40%;
+    right: 50px;
+    font-weight: bold;
+    margin-top: 50px;
+    display: none;
+}
+
+/*establezco las propiedades del header que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    
+    /*propiedades del contenedor del formulario*/
+    .formulario{
+        width: 40%;
+    }
+
+    /*propiedades del div que contiene las imagenes del captcha*/
+    .formulario .pruebaCaptcha .contenedorImg{
+        width: 400px;
+        height: 158px;
+    }
+
+    /*propiedades del input del captcha*/
+    .formulario #captcha{
+        width: 70%;
+        margin-left: 10%;
+    } 
+
+    /*propiedades del boton de reload del captcha*/
+    .formulario .reloadImg{
+        right: 50px;
+    }
+}

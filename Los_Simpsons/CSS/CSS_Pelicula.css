@@ -1,0 +1,84 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 98%;
+    border: 1px solid black;
+    color: white;
+    padding: 30px;
+}
+
+.ESP{
+    display: inline-block;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+.contenido h1,h2,p{
+    padding: 0;
+}
+
+.contenido h1,h2{
+    margin: 0 0 30px 0;
+}
+
+/*ajustes de la imagen*/
+.contenido img{
+    float: right;
+    width: 40%;
+    border: 2px solid black;
+    margin: 10px 0 10px 20px;
+}
+
+/*ajustes de la linea divisoria*/
+hr{
+    width: 70%;
+    opacity: 0.3;
+    margin: 30px auto;
+    border-radius: 100%;
+}
+
+/*le doy un width del 100% a los divs que contienen las tablas porque necesito que estos midan el mismo ancho que la caja negra*/
+.reparto{
+    width: 100%;
+}
+
+/*propiedades de la tabla de reparto*/
+.tabla{
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+/*propiedades de los apartados de la tabla*/
+.tabla td{
+    padding: 8px;
+    border: 1px solid white;
+}
+
+/*propiedades de los apartados-titulos de la tabla*/
+.tabla th{
+    background-color: black;
+    padding: 15px;
+    border: 1px solid #ddd;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*propiedades de las filas de la tabla al hacer hover*/
+.tabla tr:hover{
+    background-color: rgba(225, 225, 225, 0.2);
+}
+/*establezco las propiedades del header que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    /*ajustes de la imagen*/
+    .contenido img{
+        width: 22%;
+        margin: 55px 0 30px 30px;
+    }
+}

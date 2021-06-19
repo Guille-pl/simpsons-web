@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--Defino el tamaño del viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpsons</title>
+    <!--CSS en el que esta la "plantilla de todas las paginas" (header, menu, fondo, footer)-->
+    <link href="../CSS/CSS_Plantilla.css" rel="stylesheet">
+    <!--CSS en el que estan las propiedades de la pagina de personajes-->
+    <link href="../CSS/CSS_Personajes.css" rel="stylesheet">
+    <!--CSS externo con el que llamo a los iconos de redes sociales-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Imagen que aparecera en la pestaña de la pagina en el navegador y en los marcadores -->
+    <link rel="icon"  href="../Imagenes/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------HEADER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <header>
+        <a id="a_header" href="inicio.html">
+            <!--este div lo hago unicamente para falsear el fondo del logo, al tratarse este de un png, homer se ve
+            detras del mismo por las partes alpha, por lo que necesito crear un fondo para el logo y asi falsear esa
+            parte alfa del logo-->
+            <div id="fondo_logo"> 
+                <img id="logo_header" src="../Imagenes/logo.png" alt="logo los simpsons">
+            </div>
+        </a>
+        <p id="texto_header">Simpsons @ gmail.com <br> +34901234567</p>
+        <img id="gif_homer" src="../Imagenes/gif_homer.gif" alt="gif de homer">
+    </header>
+    
+    <!---------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------ESTRELLAS---------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--uso la etiqueta section para agrupar los divs que contendran las estrellas del fondo-->
+    <section> 
+        <div id="estrellas1">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+        </div>
+        <div id="estrellas2">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+        </div>
+        <div id="estrellas3">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------MENUS Y CONTENIDO------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!--Este div lo creo unicamente para que los menus con posicion sticky se mantengan una vez se sobrepasa
+    el 100% del viewport. Si no hiciese este div, los menus sticky desaparecerian tras sobrepasar con el scroll
+    el tamaño de la pantalla-->
+    <div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------MENUS VER Y HOR-------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+        
+        <!--Este div lo creo ya que a los menus no puedo darles position sticky y absolute al mismo tiempo, por 
+        eso meto a ambos en este div, al cual le doy position sticky ( para que siemre aparezca por pantalla), y 
+        a los menus que se encuentran dentro del mismo, les doy position absolute, para que no afecten al resto 
+        de elementos de la pagina-->
+        <div id="menusHyV">
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------MENU HOR (NAVBAR)------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--div en el que se encuentran la lista de los links para recorrer la web y el boton de ajustes-->
+            <div id="menuH">
+                <ul class="ul_menuH">
+                    <li>
+                        <a href="inicio.html" class="a_menuH">
+                            <i class="fa fa-home i_menuH"></i>
+                            <p class="ESP"> Inicio</p>
+                            <p class="EN"> Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="cronologia.html" class="a_menuH">
+                            <i class="fa fa-clock-o i_menuH"></i>
+                            <p class="ESP"> Cronologia</p>
+                            <p class="EN"> Chronology</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="personajes.html" id="a_menuH_activo">
+                            <i class="fa fa-user-o i_menuH"></i>
+                            <p class="ESP"> Personajes</p>
+                            <p class="EN"> Characters</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="curiosidades.html" class="a_menuH">
+                            <i class="fa fa-question-circle-o i_menuH"></i>
+                            <p class="ESP"> Curiosidades</p>
+                            <p class="EN"> Curiosities</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="contacto.html" class="a_menuH">
+                            <i class="fa fa-envelope-o i_menuH"></i>
+                            <p class="ESP"> Contacto</p>
+                            <p class="EN"> Contact</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div id="navAjustes" onclick="ajustes()">
+                    <i class="fa fa-cog"></i>
+                </div>
+
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------AJUSTES----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--creo un div en el que se encontraran las opciones de cambio de idioma y modo noche o dia, el cual
+            tendra position absolute, y a su vez será sticky, al igual que el menu vertical-->
+            <div id="contenedor_Ajustes">
+                <div onclick="modoNyD()">
+                    <p class="ESP">Modo - </p>
+                    <p class="EN">Mode - </p>
+                    <i id="icono_NyD" class="fa fa-sun-o"></i>
+                </div>
+                <img id="bandera1" onclick="cambioIdioma(false)" src="../Imagenes/bandera_esp.png" alt="bandera de españa">
+                <img id="bandera2" onclick="cambioIdioma(true)" src="../Imagenes/bandera_en.png" alt="bandera de inglaterra">
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------MENU VER----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--necesito crearme un div en el que meto tanto el menuV como el boton que lo oculta, para que al
+            darle al boton, no se oculte el boton, si no que cambie de position con respecto al display del menuV-->
+            <div id="contenedor_menuV">
+                <div id="menuV">
+                    <ol class="ESP">
+                        <li><a href="#0">Personajes Principales de Los Simpsons</a></li>
+                        <li><a href="#1">Homer Simpson</a></li>
+                        <li><a href="#2">Marge Simpson</a></li>
+                        <li><a href="#3">Bart Simpson</a></li>
+                        <li><a href="#4">Lisa Simpson</a></li>
+                        <li><a href="#5">Maggie Simpson</a></li>
+                    </ol>
+                    <ol class="EN">
+                        <li><a href="#a">Main Characters of The Simpsons</a></li>
+                        <li><a href="#b">Homer Simpson</a></li>
+                        <li><a href="#c">Marge Simpson</a></li>
+                        <li><a href="#d">Bart Simpson</a></li>
+                        <li><a href="#e">Lisa Simpson</a></li>
+                        <li><a href="#f">Maggie Simpson</a></li>
+                    </ol>
+                </div>
+                <div id="boton_menuV" onclick="menu_vertical()"><i class="fa fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------CONTENIDO----------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+
+        <div id="contenedor">
+            <div class="contenido parrafo">
+                <h1 class="ESP" id="0">Personajes Principales de Los Simpsons</h1>
+                <h1 class="EN" id="a">Main Characters of The Simpsons</h1>
+                <img class="imgPresentacion" src="../Imagenes/personajes/familiaSimpson.jpeg" alt="imagen de la familia simpson">
+                
+                <div class="personajes ESP">
+                    <img class="imgPersonajes1" src="../Imagenes/personajes/homer.png" alt="marge simpson">
+                    <h2 id="1">Homer Simpson</h2>
+                    <p>Homer Jay Simpson es uno de los personajes mas icónicos de los simpson no de los personajes mas 
+                        icónicos de los Simpson. Es el padre de la familia protagonista y uno de los personajes centrales más importantes
+                        de la serie. Realiza las típicas funciones de cabeza de familia en las telecomedias: es quien trabaja y lleva el 
+                        dinero a casa. Representa el estereotipo del estadounidense medio que se limita a ir a la taberna con sus 
+                        amigos, bebeer cerveza, ver la televisión y asistir a algún partido de beisbol o futbol americano. Es grosero, 
+                        incopetente, torpe, vago y bastante descuidado a pesar de que demuestra tener un gran corazón en muchos episodios 
+                        y es el personaje más chistoso de la serie.
+                        <br><br>
+                        Homer se ha convertido en uno de los personajes de ficción más influyentes y ha sido descrito por el periódico 
+                        británico The Sunday Times como la creación comica más grande de los tiempos modernos. Una de sus coletillas más 
+                        famosas en la serie es: Ouch! cada vez que comete un error o se da cuenta de su estupidez, que ocurre con mucha 
+                        frecuencia a lo largo de la serie.
+                    </p>
+                </div>
+                <div class="personajes EN">
+                    <img class="imgPersonajes1" src="../Imagenes/personajes/homer.png" alt="homer simpson">
+                    <h2 id="b">Homer Simpson</h2>
+                    <p>Homer Jay Simpson is one of the most iconic characters of the simpsons, not the most
+                        Iconic Simpsons. He is the father of the protagonist family and one of the most important central characters
+                        of the series. He performs the typical functions of the head of the family in the telecomedias: he is the one who works and carries the
+                        money home It represents the stereotype of the average American who limits himself to going to the tavern with his
+                        Friends, drink beer, watch TV and attend a game of baseball or football. It's rude,
+                        incopetente, clumsy, lazy and quite careless even though he proves to have a big heart in many episodes
+                        and is the funniest character in the series.
+                        <br><br>
+                        Homer has become one of the most influential fictional characters and has been described by the newspaper
+                        British The Sunday Times as the greatest comic creation of modern times. One of his more coleillas
+                        Famous in the series is: Ouch! every time you make a mistake or realize your stupidity, which happens with a lot
+                        frequency throughout the series.
+                    </p>
+                </div>
+                <hr>
+                <div class="personajes ESP">
+                    <img class="imgPersonajes2" src="../Imagenes/personajes/marge.png" alt="marge simpson">
+                    <h2  id="2">Marge Simpson</h2>
+                    <p>Marge Bouvier Simpson es la esposa de Homer Simpson y madre de los tres hijos que han tenido: Bart, Lisa Y Maggie. 
+                        Su presencia ha demostrado ser fundamental para mantener la familia unida en mas de una ocasión. Su rol principal 
+                        en el hogar es mantener el núcleo familiar unido con su sobria visión de la realidad con los pies en la tierra, sazonado 
+                        con alguna lección de civismo y moralidad, a veces idílica. Como madre, busca que sus hijos mayores la vean como su 
+                        confidente y amiga, como esposa procura mantener feliz a su marido, a veces sacrificando su bienestar, cordura y ética, 
+                        y como persona gragaria , lucha por tener algunas amistades o vida social. Todo siempre con un toque de humor implícito.
+                        <br><br>
+                        Su coletilla más habitual es un gruñido nasalizado y alargado en señal de disgusto, sorpresa o desaprobación. Otra de sus 
+                        frases más famosas y repetidas en su introducción fromulada "una madre siempre sabe..." y a continuación hace gala de sus 
+                        conocimientos adquiridos como ama de casa, madre y esposa desinteresada.
+                    </p>
+                </div>
+                <div class="personajes EN">
+                    <img class="imgPersonajes2" src="../Imagenes/personajes/marge.png" alt="marge simpson">
+                    <h2  id="c">Marge Simpson</h2>
+                    <p>Marge Bouvier Simpson is the wife of Homer Simpson and mother of the three children they have had: Bart, Lisa and Maggie.
+                        His presence has proven to be essential to keep the family together on more than one occasion. His main role
+                        at home is to keep the family nucleus together with his sober vision of reality with his feet on the ground, seasoned
+                        with some lesson of civics and morality, sometimes idyllic. As a mother, she wants her older children to see her as her
+                        Confident and friend, as a wife she tries to keep her husband happy, sometimes sacrificing her well-being, sanity and ethics,
+                        and as a gragaria person, fight to have some friendships or social life. All always with a touch of implicit humor.
+                        <br><br>
+                        His most common coletilla is a nasalized and elongated growl in disgust, surprise or disapproval. Another one of his
+                        most famous and repeated phrases in his introduction from "a mother always knows ..." and then boasts her
+                        knowledge acquired as a housewife, mother and selfless wife.
+                    </p>
+                </div>
+                <hr>
+                <div class="personajes ESP">
+                    <img class="imgPersonajes1" src="../Imagenes/personajes/bart.png" alt="bart simpson">
+                    <h2  id="3">Bart Simpson</h2>
+                    <p>Bartholomew Simpson o más bien llamado Bart es el hijo primogenito y unico hijo barón de Homer y Marge. Bart es el problemático
+                        de la familia. Su rol principal es el de hacer travesuras, aparte de meterse en lios, no le resulta un incoveniente meter en lios 
+                        a los demas, y así generar tramas para los episodios. Su presencia en la familia también plantea los problemas típicos que conlleva 
+                        la convivencia de dos hermanos de poca diferencia de edad que suelen contrastar en sus intereses personales.
+                        <br><br>
+                        Bart es el personaje que más coletillas tiene o citas célebres ha dicho en la serie. Unas pocas de las frases más populares de este 
+                        personaje son: ¡Ay, caramba!, Multiplicate por cero, Cómete mis calzoncillos.
+                    </p>
+                </div>
+                <div class="personajes EN">
+                    <img class="imgPersonajes1" src="../Imagenes/personajes/bart.png" alt="bart simpson">
+                    <h2  id="d">Bart Simpson</h2>
+                    <p>Bartholomew Simpson or rather called Bart is the firstborn son and only baron son of Homer and Marge. Bart is the troublemaker
+                        of the family. His main role is to make mischief, apart from getting into trouble, it is not inconvenient to get into trouble
+                        to others, and thus generate frames for the episodes. His presence in the family also raises the typical problems involved
+                        the coexistence of two brothers of little age difference that usually contrast in their personal interests.
+                        <br><br>
+                        Bart is the character that has more coleillas or famous quotes he has said in the series. A few of the most popular phrases of this
+                        character are: Oh, hell!, Multiply by zero, Eat my underpants.
+                    </p>
+                </div>
+                <hr>
+                <div class="personajes ESP">
+                    <img class="imgPersonajes2" src="../Imagenes/personajes/lisa.png" alt="lisa simpson">
+                    <h2  id="4">Lisa Simpson</h2>
+                    <p>Lisa Marie Simpson es la hija mediana de Homer y Marge. Lisa desempeña las funciones cotidianas de una niña de su edad, como ir al
+                        colegio o realizar algunas tareas en su hogar. No obstante, cuenta con la ventaja de ser superdotada. Esto hace que su rendimiento 
+                        académico sea elevado y tenga intereses peculiares como sus actividades de voluntariada y su afición a la lectura y al estudio. Sus 
+                        dos roles principales en la serie consiste en plantear los problemas típcios que conlleva la convivencia de dos hermanos de diferente 
+                        sexo con apenas dos años de diferencia y en cuestionar los valores del mundo adulto.
+                        <br><br>
+                        Los guionistas de la serie aprovechan la presencia de este personaje no solo para desarrollar capitulos con tramas de contenido 
+                        ecologista e idealista, sino también para denunciar el trato humano hacia la naturaleza y criticar las inconsistencias o injusticias 
+                        de las ideologías y religiones occidentales.
+                    </p>
+                </div>
+                <div class="personajes EN">
+                    <img class="imgPersonajes2" src="../Imagenes/personajes/lisa.png" alt="lisa simpson">
+                    <h2  id="e">Lisa Simpson</h2>
+                    <p>Lisa Marie Simpson is the middle daughter of Homer and Marge. Lisa performs the daily functions of a girl her age, like going to the
+                        school or do some homework. However, it has the advantage of being gifted. This makes its performance
+                        Academic is high and has peculiar interests such as his volunteer activities and his love of reading and studying. Their
+                        Two main roles in the series are to raise the typical problems involved in the coexistence of two brothers from different
+                        sex with only two years of difference and in questioning the values ​​of the adult world.
+                        <br><br>
+                        The scriptwriters of the series take advantage of the presence of this character not only to develop chapters with content plots
+                        environmentalist and idealist, but also to denounce the human treatment of nature and criticize inconsistencies or injustices
+                        of Western ideologies and religions.
+                    </p>
+                </div>
+                
+                <hr>
+                <div class="personajes ESP">
+                    <img class="imgPersonajes1" src="../Imagenes/personajes/maggie.png" alt="maggie simpson">
+                    <h2 id="5">Maggie Simpson</h2>
+                    <p>
+                        Margaret Abigail Simpson es la hija menor de Homer y Marge,con apenas un año de edad. El rol que Maggie desempeña en la serie 
+                        está muy reducido y puede, o no, concordar con su edad. Como bebé, Maggie se limita a comer, dormir, eructar y succionar su 
+                        chupete. Su presencia en la familia genera algunos retratos chistosos sobre la pobre organización doméstica en cuanto a evitar 
+                        riesgos para un bebé que campa a sus anchas por la casa como por ejemplo subir por escaleras, gatear por esquinas sin proteger,
+                        piezas pequeñas y productos de limpieza a su alcance, enchufes con muy mala pinta, ventiladores a nivel del suelo, entre otros 
+                        muchos.
+                        <br><br>
+                        También queda irónicamente advertido que Maggie es capaz de esquivar estos peligros por sí sola, aparte de demostrar una 
+                        inteligencia muchas veces desmesurada para su corta edad.
+                        <br><br>
+                        Como marca personal del personaje, Maggie succiona ruidosa y repetidamente su chupete con una característica onomatopeya bucal.
+                        Pero con la evolución de la serie, este ruido se ha tenido que reducir tanto en apariciones como en volumen para no eclipsar las 
+                        conversaciones que mantienen los personajes alrededor de ella. Sus repetidas caídas y su inagotable resistencia son otras 
+                        características de las que hace gala en la serie.
+                    </p>
+                </div>
+                <div class="personajes EN">
+                    <img class="imgPersonajes1" src="../Imagenes/personajes/maggie.png" alt="maggie simpson">
+                    <h2 id="f">Maggie Simpson</h2>
+                    <p>Margaret Abigail Simpson is the youngest daughter of Homer and Marge, barely a year old. The role that Maggie plays in the series
+                        It is very small and may or may not match its age. As a baby, Maggie is limited to eating, sleeping, belching and sucking her
+                        pacifier. His presence in the family generates some humorous portraits about the poor domestic organization in terms of avoiding
+                        Risks for a baby at home, such as climbing stairs, crawling around unprotected corners,
+                        small parts and cleaning products at your fingertips, plugs that look very bad, floor level fans, among others
+                        Many.
+                        <br><br>
+                        It is also ironically warned that Maggie is able to avoid these dangers alone, apart from demonstrating a
+                        intelligence often disproportionate for his young age.
+                        <br><br>
+                        As a personal brand of the character, Maggie sucks loudly and repeatedly his pacifier with a characteristic oral onomatopoeia.
+                        But with the evolution of the series, this noise has had to be reduced both in appearances and in volume so as not to overshadow the
+                        conversations that keep the characters around her. His repeated falls and his inexhaustible resistance are other
+                        characteristics of which it shows in the series.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------FOOTER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <img class="imagen_footer" src="../Imagenes/footer.png" alt="pie de pagina">
+        <div id="contenido_footer">
+            <img class="imagen_footer" src="../Imagenes/footer_fade.png" alt="pie de pagina">
+            <ul class="ul_footer">
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.facebook.com/">
+                        <!--Utilizo la etiqueta i para meter los iconos, a los cuales trato como texto-->
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.instagram.com/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://twitter.com/">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.youtube.com/">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="copyright_texto">© 2018 Copyright: Guille & Juanjo</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------SCRIPTS----------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--Script en el que estan las funciones de los elementos de la plantilla-->
+    <script src="../Scripts/Plantilla.js"></script>
+
+</body>
+</html>

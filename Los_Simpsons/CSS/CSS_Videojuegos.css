@@ -1,0 +1,182 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 95%;
+    border: 1px solid black;
+    color: white;
+    padding: 0 40px 30px 40px;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+.contenido h1{
+    width: 100%;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+/*propiedades del contenedor de la galeria*/
+.galeria{
+    margin-top: 40px;
+}
+
+/*propiedades de los divs que formatean la distribucion de los elementos de la galeria*/
+.huecos{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 40px 30px;
+}
+
+/*propiedades de los elementos de la galeria*/
+.album{
+	position: relative;
+	overflow: hidden;
+    box-shadow: 0 0 25px white;
+    border: 1px solid black;
+	border-radius: 40px 100px 20px 20px;
+}
+
+/*propiedades de las imagenes*/
+.album img{
+    position: relative; 
+    display: block;
+	width: 100%;
+    transition: 0.6s;
+}
+
+.album:hover img{
+	transform: scale(1.2,1.2);
+}
+
+/*propiedades del contenedor de la informacion*/
+.album-contenido{
+	height: 80px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+    bottom: 0;
+    border-top: 1px solid black;
+	background:#ffd83d;
+	transition: .6s;
+
+}
+
+.album:hover .album-contenido{
+	height: 150px;
+	background:#000;
+}
+
+/*propiedades del contenedor de la informacion de presentacion*/
+.album-info{
+    transition: .6s;
+    border-bottom: 2px dotted tomato;
+}
+
+/*propiedades de lostitulos de las imagenes de la galeria antes de hacer hover*/
+.album-info h3{
+    font-size: 16px;
+    margin: 15px auto 0 auto;
+    color: black;
+    transition: .6s;
+	text-transform: uppercase;
+}
+
+/*propiedades de lostitulos de las imagenes de la galeria despues de hacer hover*/
+.album:hover .album-info h3{
+	color: tomato;
+}
+
+/*propiedades de los parrafos de la galeria antes de hacer hover*/
+.album-info p{
+    color: black;
+    transition: .6s;
+}
+
+/*propiedades de los parrafos de la galeria despues de hacer hover*/
+.album:hover .album-info p{
+    color: white;
+}
+
+.album-texto{
+    color:white;
+    padding: 0 10px;
+    margin-top: 15px;
+}
+
+/*propiedades de los iconos de las cruces*/
+.huecos i{
+    top: 50px;
+    right: 40px;
+    position:absolute;
+    font-size: 20px;
+    color: white;
+    z-index: 1;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+    padding: 4px 5px;
+    color: rgba(225, 225, 225, 0.8);
+}
+
+/*propiedades de las cruces al hacer hover*/
+.huecos i:hover{
+    color:white;
+}
+
+/*animacion que deben realizar las cruces cuando son pulsadas*/
+.huecos i:active{
+    animation: animCruces 0.1s ease-out forwards;
+}
+
+/*animacion de las cruces*/
+@keyframes animCruces{
+    from{font-size: 20px;}
+    to{font-size: 15px;}
+}
+
+/*propiedades del boton de restaurar galeria*/
+.boton button{
+    color: #ededed;
+    font-size: 20px;
+    margin: 30px 0;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    padding: 10px;
+    border: 1px solid #949494;
+    background-color: #0a0a0a;
+    border-radius: 30px;
+    box-shadow: 0 0 20px #ffd83d;
+}
+
+/*propiedades del boton cuando se hace click*/
+.boton button:active{
+    animation: animBoton 0s linear both;
+}
+
+/*animacion del boton*/
+@keyframes animBoton{
+    from{box-shadow: '';}
+    to{box-shadow: 0 0 40px #ffd83d;}
+}
+
+/*propiedades del navbar que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    .contenido{
+        padding: 0 100px 30px 100px;
+    }
+    
+    .contenido h1{
+        margin-top: 50px;
+    }
+
+    .huecos{
+        width: 33.1%;
+    }
+}

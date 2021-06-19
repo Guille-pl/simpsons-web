@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--Defino el tamaño del viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpsons</title>
+    <!--CSS en el que esta la "plantilla de todas las paginas" (header, menu, fondo, footer)-->
+    <link href="../CSS/CSS_Plantilla.css" rel="stylesheet">
+    <!--CSS en el que estan las propiedades de la pagina de curiosidades-->
+    <link href="../CSS/CSS_Curiosidades.css" rel="stylesheet">
+    <!--CSS externo con el que llamo a los iconos de redes sociales-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Imagen que aparecera en la pestaña de la pagina en el navegador y en los marcadores -->
+    <link rel="icon"  href="../Imagenes/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------HEADER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <header>
+        <a id="a_header" href="inicio.html">
+            <!--este div lo hago unicamente para falsear el fondo del logo, al tratarse este de un png, homer se ve
+            detras del mismo por las partes alpha, por lo que necesito crear un fondo para el logo y asi falsear esa
+            parte alfa del logo-->
+            <div id="fondo_logo"> 
+                <img id="logo_header" src="../Imagenes/logo.png" alt="logo los simpsons">
+            </div>
+        </a>
+        <p id="texto_header">Simpsons @ gmail.com <br> +34901234567</p>
+        <img id="gif_homer" src="../Imagenes/gif_homer.gif" alt="gif de homer">
+    </header>
+    
+    <!---------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------ESTRELLAS---------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--uso la etiqueta section para agrupar los divs que contendran las estrellas del fondo-->
+    <section> 
+        <div id="estrellas1"><span class="span1"></span></div>
+        <div id="estrellas2"><span class="span1"></span></div>
+        <div id="estrellas3"><span class="span1"></span></div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------MENUS Y CONTENIDO------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!--Este div lo creo unicamente para que los menus con posicion sticky se mantengan una vez se sobrepasa
+    el 100% del viewport. Si no hiciese este div, los menus sticky desaparecerian tras sobrepasar con el scroll
+    el tamaño de la pantalla-->
+    <div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------MENUS VER Y HOR-------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+        
+        <!--Este div lo creo ya que a los menus no puedo darles position sticky y absolute al mismo tiempo, por 
+        eso meto a ambos en este div, al cual le doy position sticky ( para que siemre aparezca por pantalla), y 
+        a los menus que se encuentran dentro del mismo, les doy position absolute, para que no afecten al resto 
+        de elementos de la pagina-->
+        <div id="menusHyV">
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------MENU HOR (NAVBAR)------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--div en el que se encuentran la lista de los links para recorrer la web y el boton de ajustes-->
+            <div id="menuH">
+                <ul class="ul_menuH">
+                    <li>
+                        <a href="inicio.html" class="a_menuH">
+                            <i class="fa fa-home i_menuH"></i>
+                            <p class="ESP"> Inicio</p>
+                            <p class="EN"> Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="cronologia.html" class="a_menuH">
+                            <i class="fa fa-clock-o i_menuH"></i>
+                            <p class="ESP"> Cronologia</p>
+                            <p class="EN"> Chronology</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="personajes.html" class="a_menuH">
+                            <i class="fa fa-user-o i_menuH"></i>
+                            <p class="ESP"> Personajes</p>
+                            <p class="EN"> Characters</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="curiosidades.html" id="a_menuH_activo">
+                            <i class="fa fa-question-circle-o i_menuH"></i>
+                            <p class="ESP"> Curiosidades</p>
+                            <p class="EN"> Curiosities</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="contacto.html" class="a_menuH">
+                            <i class="fa fa-envelope-o i_menuH"></i>
+                            <p class="ESP"> Contacto</p>
+                            <p class="EN"> Contact</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div id="navAjustes" onclick="ajustes()">
+                    <i class="fa fa-cog"></i>
+                </div>
+
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------AJUSTES----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--creo un div en el que se encontraran las opciones de cambio de idioma y modo noche o dia, el cual
+            tendra position absolute, y a su vez será sticky, al igual que el menu vertical-->
+            <div id="contenedor_Ajustes">
+                <div onclick="modoNyD()">
+                    <p class="ESP">Modo - </p>
+                    <p class="EN">Mode - </p>
+                    <i id="icono_NyD" class="fa fa-sun-o"></i>
+                </div>
+                <img id="bandera1" onclick="cambioIdioma(false)" src="../Imagenes/bandera_esp.png" alt="bandera de españa">
+                <img id="bandera2" onclick="cambioIdioma(true)" src="../Imagenes/bandera_en.png" alt="bandera de inglaterra">
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------MENU VER----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--necesito crearme un div en el que meto tanto el menuV como el boton que lo oculta, para que al
+            darle al boton, no se oculte el boton, si no que cambie de position con respecto al display del menuV-->
+            <div id="contenedor_menuV">
+                <div id="menuV">
+                    <ol class="ESP">
+                        <li><a href="#1">Los únicos personajes con cinco dedos</a></li>
+                        <li><a href="#2">¿Por qué son amarillos?</a></li>
+                        <li><a href="#3">Siluetas y peinados distintivo</a></li>
+                        <li><a href="#4">La voz de Homer, la más popular</a></li>
+                        <li><a href="#5">Los apellidos son nombres de calles</a></li>
+                        <li><a href="#6">¿Cuánto se tarda en hacer un capítulo?</a></li>
+                        <li><a href="#7">Sin censuras</a></li>
+                        <li><a href="#8">Homer, en todos los episodios</a></li>
+                        <li><a href="#9">Smithers era negro</a></li>
+                    </ol>
+                    <ol class="EN">
+                        <li><a href="#a"> The only characters with five fingers </a></li>
+                        <li><a href="#b"> Why are they yellow? </a></li>
+                        <li><a href="#c"> Silhouettes and distinctive hairstyles </a></li>
+                        <li><a href="#d"> Homer's voice, the most popular </a></li>
+                        <li><a href="#e"> Last names are street names </a></li>
+                        <li><a href="#f"> How long does it take to make a chapter? </a></li>
+                        <li><a href="#g"> Uncensored </a></li>
+                        <li><a href="#h"> Homer, in all episodes </a></li>
+                        <li><a href="#i"> Smithers was black </a></li>
+                    </ol>
+                </div>
+                <div id="boton_menuV" onclick="menu_vertical()"><i class="fa fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------CONTENIDO----------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+
+        <div id="contenedor">
+            <!--creo el contenedor (caja negra)-->
+            <div class="contenido parrafo">
+                <!--Meto todo el contenido en un div que estara oculto o visible dependiendo del idioma-->
+                <div class="ESP">
+                    <h1>Curiosidades de Los Simpsons</h1>
+                    <img class="img1" src="../Imagenes/curiosidades/portada.jpg" alt="familia simpson">
+                    
+                    <p><b id="1">Los únicos personajes con cinco dedos.</b></p>
+                        
+                    <p>Dios y Jesús son los únicos personajes de Los Simpson que tienen cinco dedos, tanto en las manos como en 
+                    los pies. El resto de Springfieldtiene tres dedos y un pulgar en cada mano.</p>
+
+                    <hr>
+                
+                    <p><b id="2">¿Por qué son amarillos? </b></p>
+                    <p>Matt Groening decidió que Los Simpson serían de color amarillo para tratar de captar la atención de los 
+                    espectadores que hacían zapping.</p>
+
+                    <hr>
+
+                    <p><b id="3">Siluetas y peinados distintivos.</b> </p>
+                    <p>El creador de la serie también diseñó cada miembro de la familia para ser perfectamente identificable por 
+                    su silueta. Por eso las formas de sus cabezas y sus peinados son tan diferentes.</p>
+
+                    <hr>
+
+                    <p><b id="4">La voz de Homer, la más popular.</b></p>
+                    <p>La voz de Homer Simpson -que en Estados Unidos es de Dan Castellaneta- es la más descargada para los 
+                    navegadores o Tom Tom en todo el mundo, por delante de Darth Vader (James Earl Jones) o Ali G (Sacha Baron Cohen).</p>
+
+                    <hr>
+
+                    <p><b id="5">Los apellidos son nombres de calles.</b></p>
+                    <p>Lovejoy, Quimby, Flanders, Kearney... Estos apellidos de habitantes de Springfield son en realidad nombres 
+                    de calles de Portland, Oregon, la ciudad natal de Groening.</p>
+
+                    <hr>
+
+                    <p><b id="6">¿Cuánto se tarda en hacer un capítulo?</b></p> 
+                    <p>Entre seis y ocho meses.</p>
+
+                    <hr>
+
+                    <p><b id="7">Sin censuras.</b> </p>
+                    <p>Una cláusula específica del contrato de los creadores de la serie impide que los directivos de Fox hagan 
+                    cortes o ejerzan cualquier tipo de control creativo sobre los episodios, lo que permite a Los Simpson burlarse 
+                    hasta de su propia cadena.</p>
+
+                    <hr>
+
+                    <p><b id="8">Homer, en todos los episodios.</b></p> 
+                    <p>El único personaje de Los Simpson que tiene diálogos en todos los episodios de la serie es Homer.</p>
+
+                    <hr>
+
+                    <p><b id="9">Smithers era negro.</b></p>
+                    <p>El asistente del señor Burns, Waylon Smithers, era negro en el primer episodio. Groening en un primer 
+                    momento pretendió que fuera blanco, pero un error de color durante la producción de la animación hizo que 
+                    apareciera negro en el piloto. El creador pensó en mantener el personaje tal cual, pero alguien señaló que 
+                    poner a un negro como ayudante podría crear controversia y volvieron a la idea original.</p>
+                </div>
+                <div class="EN">
+                    <h1>Curiosities about The Simpsons</h1>
+                    <img class="img1" src="../Imagenes/curiosidades/portada.jpg" alt="familia simpson">
+                    
+                    
+                    <p> <b id = "a"> The only characters with five fingers. </b> </p>
+                                            
+                    <p> God and Jesus are the only Simpsons characters that have five fingers, both in their hands and in
+                    the feet. The rest of Springfield has three fingers and one thumb on each hand. </p>
+
+                    <hr>
+
+                    <p> <b id = "b"> Why are they yellow? </b> </p>
+                    <p>Matt Groening decided that The Simpsons would be yellow to try to capture the attention of
+                    spectators who did zapping. </p>
+
+                    <hr>
+
+                    <p> <b id = "c"> Silhouettes and distinctive hairstyles. </b> </p>
+                    <p> The creator of the series also designed each family member to be perfectly identifiable by
+                    Your silhouette That's why the shapes of their heads and their hairstyles are so different. </p>
+
+                    <hr>
+
+                    <p> <b id = "d"> Homer's voice, the most popular. </b> </p>
+                    <p> The voice of Homer Simpson - which in the United States is Dan Castellaneta - is the most downloaded for
+                    Browsers or Tom Tom worldwide, ahead of Darth Vader (James Earl Jones) or Ali G (Sacha Baron Cohen). </p>
+
+                    <hr>
+
+                    <p> <b id = "e"> Last names are street names. </b> </p>
+                    <p> Lovejoy, Quimby, Flanders, Kearney ... These last names of Springfield inhabitants are actually names
+                    of streets of Portland, Oregon, the hometown of Groening. </p>
+
+                    <hr>
+
+                    <p> <b id = "f"> How long does it take to make a chapter? </b> </p>
+                    <p> Between six and eight months. </p>
+
+                    <hr>
+                    
+                    <p> <b id = "g"> Uncensored. </b> </p>
+                    <p> A specific clause of the series creators' contract prevents Fox executives from making
+                    cuts or exert any kind of creative control over the episodes, allowing the Simpsons to mock
+                    even from your own chain. </p>
+
+                    <hr>
+
+                    <p> <b id = "h"> Homer, in all episodes. </b> </p>
+                    <p> The only character in The Simpsons who has dialogues in all episodes of the series is Homer. </p>
+
+                    <hr>
+
+                    <p> <b id = "i"> Smithers was black. </b> </p>
+                    <p> Mr. Burns's assistant, Waylon Smithers, was black in the first episode. Groening in a first
+                    moment he intended it to be white, but a color error during the production of the animation made
+                    Black appeared on the pilot. The creator thought of keeping the character as is, but someone pointed out that
+                    putting a black man as an assistant could create controversy and they returned to the original idea. </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------FOOTER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <img class="imagen_footer" src="../Imagenes/footer.png" alt="pie de pagina">
+        <div id="contenido_footer">
+            <img class="imagen_footer" src="../Imagenes/footer_fade.png" alt="pie de pagina">
+            <ul class="ul_footer">
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.facebook.com/">
+                        <!--Utilizo la etiqueta i para meter los iconos, a los cuales trato como texto-->
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.instagram.com/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://twitter.com/">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.youtube.com/">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="copyright_texto">© 2018 Copyright: Guille & Juanjo</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------SCRIPTS----------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--Script en el que estan las funciones de los elementos de la plantilla-->
+    <script src="../Scripts/Plantilla.js"></script>
+
+</body>
+</html>

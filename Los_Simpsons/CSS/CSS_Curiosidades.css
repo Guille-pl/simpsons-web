@@ -1,0 +1,63 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 96%;
+    border: 1px solid black;
+    color: white;
+    padding: 30px 50px;
+}
+
+.ESP{
+    display: inline-block;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+.contenido h1,p{
+    padding: 0;
+}
+
+.contenido h1{
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+}
+
+/*ajustes de los titulos de las curiosidades*/
+.contenido b{
+    font-size: 18px;
+}
+
+/*ajustes de la imagen*/
+.contenido img{
+    width: 100%;
+    display: block;
+    margin: 40px auto 70px auto;
+    border: 2px solid black;
+}
+
+/*ajustes de la linea divisoria*/
+hr{
+    width: 30%;
+    opacity: 0.3;
+    margin: 40px auto;
+}
+
+/*establezco las propiedades del header que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    /*propiedades de la caja negra*/
+    .contenido{
+        width: 70%;
+        padding: 50px 100px;
+    }
+
+    /*ajustes de la imagen*/
+    .contenido img{
+        width: 75%;
+        margin: 40px auto 80px auto;
+    }
+}

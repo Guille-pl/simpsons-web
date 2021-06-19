@@ -1,0 +1,90 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 95%;
+    border: 1px solid black;
+    color: white;
+    padding: 0 40px 30px 40px;
+}
+
+.ESP{
+    display: inline-block;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+/*propiedades de lo parrafos*/
+.contenido p{
+    margin: 0;
+}
+
+/*propiedades de los h2*/
+.contenido h2{
+    margin: 20px 0 40px 0;
+    width: 100%;
+    font-size: 30px;
+}
+
+/*propiedades de los h1*/
+.contenido h1{
+    width: 100%;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/*propiedades de las filas de la tabla*/
+.contenido hr{
+    width: 70%;
+    opacity: 0.3;
+    margin: 40px auto;
+    border-radius: 100%;
+}
+
+/*propiedades del texto del placeholder*/
+input[type=text]{
+    width: 90%;
+    padding: 8px 20px;
+    margin: 8px 5%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+/*propiedades del contenedor de la tabla*/
+.contenido .tabla{
+    width: 100%;
+}
+
+/*propiedades de la tabla*/
+.lista{
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*propiedades de los apartados normales de la tabla*/
+.lista td{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/*propiedades de los apartadso enunciados de la pagina*/
+.lista th{
+    background-color: black;
+    padding: 15px;
+    border: 1px solid #ddd;
+    color: white;
+    font-weight: bold;
+}
+
+.lista tr:hover{
+    background-color: rgba(225, 225, 225, 0.2);
+}

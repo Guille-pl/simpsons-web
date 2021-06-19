@@ -1,0 +1,97 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 95%;
+    border: 1px solid black;
+    color: white;
+    padding: 0 20px;
+}
+
+.ESP{
+    display: inline-block;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+.contenido h1,h2,p{
+    padding: 0;
+    margin: 0;
+}
+
+/*peopiedades del h1*/
+.contenido h1{
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+/*propiedades de la imagen principal de presentacion*/
+.contenido .imgPresentacion{
+    width: 100%;
+    padding: 13% 5%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*propiedades de las cajas que contienen la informacion e imagenes de los personajes*/
+.contenido .personajes{
+    width: 100%;
+    padding: 20px;
+    text-align: justify;
+}
+
+/*propiedades de los h2*/
+.contenido h2{
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/*propiedades de las imagenes de los personajes que se situan a la derecha*/
+.contenido .imgPersonajes1{
+    float: right;
+    width: 20%;
+    margin-left: 20px;
+}
+
+/*propiedades de las imagenes de los personajes que se situan a la izquierda*/
+.contenido .imgPersonajes2{
+    float: left;
+    width: 20%;
+    margin-right: 20px;
+}
+
+/*ajustes de la linea divisoria*/
+hr{
+    width: 70%;
+    opacity: 0.3;
+    margin: 30px auto;
+    border-radius: 100%;
+}
+
+/*establezco las propiedades del header que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    /*propiedades de la caja negra*/
+    .contenido{
+        width: 80%;
+        padding: 0 60px;
+    }
+
+    .contenido h1{
+        margin-top: 50px;
+    }
+
+    .contenido .imgPresentacion{
+        padding: 5% 10%;
+    }
+
+    .contenido .personajes{
+        padding: 40px;
+    }
+}

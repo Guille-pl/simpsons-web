@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--Defino el tamaño del viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpsons</title>
+    <!--CSS en el que esta la "plantilla de todas las paginas" (header, menu, fondo, footer)-->
+    <link href="../CSS/CSS_Plantilla.css" rel="stylesheet">
+    <!--CSS en el que estan las propiedades de la pagina de cronologia-->
+    <link href="../CSS/CSS_Cronologia.css" rel="stylesheet">
+    <!--CSS externo con el que llamo a los iconos de redes sociales-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Imagen que aparecera en la pestaña de la pagina en el navegador y en los marcadores -->
+    <link rel="icon"  href="../Imagenes/favicon.png" type="image/x-icon">
+</head>
+<!--Cuando se carga la pagina se establece el tamaño de la linea del timeline-->
+<body>
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------HEADER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <header>
+        <a id="a_header" href="inicio.html">
+            <!--este div lo hago unicamente para falsear el fondo del logo, al tratarse este de un png, homer se ve
+            detras del mismo por las partes alpha, por lo que necesito crear un fondo para el logo y asi falsear esa
+            parte alfa del logo-->
+            <div id="fondo_logo"> 
+                <img id="logo_header" src="../Imagenes/logo.png" alt="logo los simpsons">
+            </div>
+        </a>
+        <p id="texto_header">Simpsons @ gmail.com <br> +34901234567</p>
+        <img id="gif_homer" src="../Imagenes/gif_homer.gif" alt="gif de homer">
+    </header>
+    
+    <!---------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------ESTRELLAS---------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--uso la etiqueta section para agrupar los divs que contendran las estrellas del fondo-->
+    <section> 
+        <div id="estrellas1">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+            <span class="span5"></span>
+        </div>
+        <div id="estrellas2">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+            <span class="span5"></span>
+        </div>
+        <div id="estrellas3">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+            <span class="span5"></span>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------MENUS Y CONTENIDO------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!--Este div lo creo unicamente para que los menus con posicion sticky se mantengan una vez se sobrepasa
+    el 100% del viewport. Si no hiciese este div, los menus sticky desaparecerian tras sobrepasar con el scroll
+    el tamaño de la pantalla-->
+    <div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------MENUS VER Y HOR-------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+        
+        <!--Este div lo creo ya que a los menus no puedo darles position sticky y absolute al mismo tiempo, por 
+        eso meto a ambos en este div, al cual le doy position sticky ( para que siemre aparezca por pantalla), y 
+        a los menus que se encuentran dentro del mismo, les doy position absolute, para que no afecten al resto 
+        de elementos de la pagina-->
+        <div id="menusHyV">
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------MENU HOR (NAVBAR)------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--div en el que se encuentran la lista de los links para recorrer la web y el boton de ajustes-->
+            <div id="menuH">
+                <ul class="ul_menuH">
+                    <li>
+                        <a href="inicio.html" class="a_menuH">
+                            <i class="fa fa-home i_menuH"></i>
+                            <p class="ESP"> Inicio</p>
+                            <p class="EN"> Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="cronologia.html" id="a_menuH_activo">
+                            <i class="fa fa-clock-o i_menuH"></i>
+                            <p class="ESP"> Cronologia</p>
+                            <p class="EN"> Chronology</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="personajes.html" class="a_menuH">
+                            <i class="fa fa-user-o i_menuH"></i>
+                            <p class="ESP"> Personajes</p>
+                            <p class="EN"> Characters</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="curiosidades.html" class="a_menuH">
+                            <i class="fa fa-question-circle-o i_menuH"></i>
+                            <p class="ESP"> Curiosidades</p>
+                            <p class="EN"> Curiosities</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="contacto.html" class="a_menuH">
+                            <i class="fa fa-envelope-o i_menuH"></i>
+                            <p class="ESP"> Contacto</p>
+                            <p class="EN"> Contact</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div id="navAjustes" onclick="ajustes()">
+                    <i class="fa fa-cog"></i>
+                </div>
+
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------AJUSTES----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--creo un div en el que se encontraran las opciones de cambio de idioma y modo noche o dia, el cual
+            tendra position absolute, y a su vez será sticky, al igual que el menu vertical-->
+            <div id="contenedor_Ajustes">
+                <div onclick="modoNyD()">
+                    <p class="ESP">Modo - </p>
+                    <p class="EN">Mode - </p>
+                    <i id="icono_NyD" class="fa fa-sun-o"></i>
+                </div>
+                <img id="bandera1" onclick="cambioIdioma(false), heightLinea(false)" src="../Imagenes/bandera_esp.png" alt="bandera de españa">
+                <img id="bandera2" onclick="cambioIdioma(true), heightLinea(true)" src="../Imagenes/bandera_en.png" alt="bandera de inglaterra">
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------MENU VER----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--necesito crearme un div en el que meto tanto el menuV como el boton que lo oculta, para que al
+            darle al boton, no se oculte el boton, si no que cambie de position con respecto al display del menuV-->
+            <div id="contenedor_menuV">
+                <div id="menuV">
+                    <ol class="ESP">
+                        <li><a href="#1">Nacimiento del dia mundial de Los Simpsons</a></li>
+                        <li><a href="#2">Record guinnes: mas artistas invitados</a></li>
+                        <li><a href="#3">Estrella en el paseo de la fama de Hollywood</a></li>
+                        <li><a href="#4">Record guinnes: la comedia emitida mas tiempo ininterrumpidamente</a></li>
+                        <li><a href="#5">Estreno de la pelicula "Los Sipmsons"</a></li>
+                        <li><a href="#6">Episodio mas visto de la serie</a></li>
+                        <li><a href="#7">Emisión del primer episodio</a></li>
+                    </ol>
+                    <ol class="EN">
+                        <li><a href="#1">Birth of The Simpsons world day</a></li>
+                        <li><a href="#2">Guinness record: the most guest artists</a></li>
+                        <li><a href="#3">Star on the Hollywood Walk of Fame</a></li>
+                        <li><a href="#4">Guinness record: the comedy with the longest screening time uninterruptedly</a></li>
+                        <li><a href="#5">Release of the film "The Simpsons"</a></li>
+                        <li><a href="#6">Most watched episode of the series</a></li>
+                        <li><a href="#7">Screening of the first episode</a></li>
+                    </ol>
+                </div>
+                <div id="boton_menuV" onclick="menu_vertical()"><i class="fa fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------CONTENIDO----------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+
+        <div id="contenedor">
+            <!--creo el contenedor (caja negra)-->
+            <div class="contenido parrafo">
+                <h1 class="ESP">Cronologia de Los Simpsons: Hechos históricos</h1>
+                <h1 class="EN">The Simpsons Conology: Historical facts</h1>
+                <!--creo la linea blanca del timeline-->
+                <div class="linea"></div>
+                <div class="timeline">
+                    <ul>
+                        <li id="1">
+                            <div class="ESP">
+                                <h3>Nacimiento del dia mundial de Los Simpsons</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Birth of The Simpsons world day</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Abril 2017</div>
+                            <div class="fecha EN">April 2017</div>
+                        </li>
+                        <li id="2">
+                            <div class="ESP">
+                                <h3>Record guinnes: mas artistas invitados</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Guinness record: the most guest artists</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Agosto 2015</div>
+                            <div class="fecha EN">August 2015</div>
+                        </li>
+                        <li id="3">
+                            <div class="ESP">
+                                <h3>Estrella en el paseo de la fama de Hollywood</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Star on the Hollywood Walk of Fame</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Febrero 2012</div>
+                            <div class="fecha EN">February 2012</div>
+                        </li>
+                        <li id="4">
+                            <div class="ESP">
+                                <h3>Record guinnes: la comedia emitida mas tiempo ininterrumpidamente</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Guinness record: the comedy with the longest screening time uninterruptedly</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Julio 2009</div>
+                            <div class="fecha EN">July 2009</div>
+                        </li>
+                        <li id="5">
+                            <div class="ESP">
+                                <h3>Estreno de la pelicula "Los Sipmsons"</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Release of the film "The Simpsons"</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Julio 2007</div>
+                            <div class="fecha EN">July 2007</div>
+                        </li>
+                        <li id="6">
+                            <div class="ESP">
+                                <h3>Episodio mas visto de la serie</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Most watched episode of the series</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Octubre 1990</div>
+                            <div class="fecha EN">October 1990</div>
+                        </li>
+                        <li id="7">
+                            <div class="ESP">
+                                <h3>Emisión del primer episodio</h3>
+                                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+                                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+                                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+                                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+                                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                                    electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la 
+                                    creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más 
+                                    recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye 
+                                    versiones de Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="EN">
+                                <h3>Screening of the first episode</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+                                    a galley of type and scrambled it to make a type specimen book. It has survived not only 
+                                    five centuries, but also the leap into electronic typesetting, remaining essentially 
+                                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            <div class="fecha ESP">Diciembre 1989</div>
+                            <div class="fecha EN">December 1989</div>
+                        </li>
+                    </ul>
+                </div>
+                <!--Los elementos anteriores a este div son flotantes (tienen float left y right), por lo que necesito
+                este div con la propiedad de clear: both para emular que actuan como elementos no flotantes y modifiquen
+                la altura del div dentro del que se encuentran-->
+                <div class="cajaClear"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------FOOTER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <img class="imagen_footer" src="../Imagenes/footer.png" alt="pie de pagina">
+        <div id="contenido_footer">
+            <img class="imagen_footer" src="../Imagenes/footer_fade.png" alt="pie de pagina">
+            <ul class="ul_footer">
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.facebook.com/">
+                        <!--Utilizo la etiqueta i para meter los iconos, a los cuales trato como texto-->
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.instagram.com/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://twitter.com/">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.youtube.com/">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="copyright_texto">© 2018 Copyright: Guille & Juanjo</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------SCRIPTS----------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--Script en el que estan las funciones de los elementos de la plantilla-->
+    <script src="../Scripts/Plantilla.js"></script>
+    <!--Script en el que estan las funciones de la pagina de cronologia-->
+    <script src="../Scripts/Cronologia.js"></script>
+
+</body>
+</html>

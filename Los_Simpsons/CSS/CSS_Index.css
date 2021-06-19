@@ -1,0 +1,276 @@
+/*propiedades del html en el index*/
+html{
+    height: 98%;
+}
+
+/*propiedades del body en el index*/
+body {
+    background: linear-gradient(#1A8AD2, #77BCDA);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+/*propiedades del div que ocupa toda la pantalla y funciona como link*/
+.screen, a{
+    width: inherit;
+    height: inherit;
+}
+
+/*propiedades del texto*/
+.texto{
+    color:black;
+    font-size: medium;
+    opacity:0;
+    font-weight: bold;
+    margin: 30% 0% 0% 35%;
+    animation-name: texto;
+    animation-fill-mode:forwards;
+    animation-delay: 6s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    z-index: 1;
+    position: fixed;
+    animation-timing-function: ease-in-out;
+}
+
+/*propiedadse de las imagenes del logo*/
+.logo, .logoEnEspera{
+    position:fixed;
+    transform: translate(-50%, -50%); /*establezco el centro (ancla) de la imagen en el centro, y no arriba a la izq como esta en default, ya que la animacion se hace con respecto al ancla*/
+    margin: 18% 0% 0% 50%;
+    animation-fill-mode:forwards;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+    z-index: 1;
+}
+
+/*propiedadse del logo que se amplia*/
+.logo{
+    animation-name: logoAnimacion;
+    animation-duration: 4.1s;
+    animation-delay: 2s;
+}
+
+/*propiedades del logo en espera*/
+.logoEnEspera{
+    animation-name: logoEspera;
+    animation-delay: 6s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/*propiedades de la img de homer*/
+.homer{
+    position:fixed;
+    animation-fill-mode:forwards;
+    animation-timing-function: linear;
+    margin-top: 32%;
+    opacity: 0;
+    z-index: 1;
+    transform: translate(-50%, 0%);
+    animation-name: homer;
+    animation-delay: 6s;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+/*animaciones*/
+@keyframes homer{
+    0% {left: -20%; opacity: 1;}
+    50% {left: -20%; opacity: 1;}
+    100% {left: 120%; opacity: 1;}
+}
+
+@keyframes logoAnimacion{
+    0% {width: 200px; opacity: 0;} 
+    70% {width: 1100px; opacity: 1;}
+    99% {width: 927px; opacity: 1;}
+    100% {width: 927px; opacity: 0;}
+}
+
+@keyframes logoEspera{
+    0% {width: 927px; opacity: 1;}
+    50% {width: 1000px; opacity: 1;}
+    100% {width: 927px; opacity: 1;}
+}
+
+@keyframes texto{
+    0% {opacity: 0.2;} 
+    50% {opacity: 1;}
+    100% {opacity: 0.2;}
+}
+
+/*propiedades comunes de las nubes*/
+.nube1, .nube2, .nube3, .nube4, .nube5, .nube6, .nube7, .nube8, .nube9, .nube10, .nube11, .nube12, .nube13, .nube14, .nube15{
+    animation-duration: 4.5s;
+    position: fixed;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+/*propiedades individuales de cada nube con su animacion correspondiente*/
+.nube1{
+    animation-name: nube1;
+}
+
+@keyframes nube1{
+    from{right: 46%; top: 30%; width: 10%;}
+    to{right: 60%; top: -20%; width: 60%;}
+}
+
+.nube2{
+    animation-name: nube2;
+}
+
+@keyframes nube2{
+    from{right: 45%; top: 37%; width: 10%;}
+    to{right: 70%; top: 10%; width: 40%;}
+}
+
+.nube3{
+    margin-top:22%;
+    animation-name: nube3;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+}
+
+@keyframes nube3{
+    from{left: 37%; width: 20%;}
+    to{left: -10%; width: 60%;}
+}
+
+.nube4{
+    animation-name: nube4;
+    z-index: -1;
+    opacity: 0.6;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nube4{
+    from{top: 33%;  left: 40%; width: 20%;}
+    to{top: 0%; left: 0%; width: 60%;}
+}
+
+.nube5{
+    animation-name: nube5;
+    margin-left: 48%;
+    opacity: 0.8;
+    z-index: -1;
+    transform: translate(-50%, 0%);
+}
+
+@keyframes nube5{
+    from{top: 15%; width: 30%;}
+    to{top: -28%; width: 50%;}
+}
+
+.nube6{
+    animation-name: nube6;
+    z-index: -1;
+    transform: translate(-50%, 0%);
+}
+
+@keyframes nube6{
+    from{top: 20%; left: 60%; width: 20%;}
+    to{top: -20%; left: 80%; width: 50%;}
+}
+
+.nube7{
+    animation-name: nube7;
+    z-index: -1;
+    opacity: 0.8;
+    transform: translate(-50%, 0%);
+}
+
+@keyframes nube7{
+    from{top: 28%; left: 65%; width: 10%;}
+    to{top: 0%; left: 100%; width: 50%;}
+}
+
+.nube8{
+    animation-name: nube8;
+    z-index: -1;
+    transform: translate(-50%, 0%);
+}
+
+@keyframes nube8{
+    from{top: 29%; left: 56%; width: 20%;}
+    to{top: 5%; left: 90%; width: 30%;}
+}
+
+.nube9{
+    animation-name: nube9;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nube9{
+    from{top: 38%; left: 62%; width: 10%;}
+    to{top: 40%; left: 115%; width: 60%;}
+}
+
+.nube10{
+    animation-name: nube10;
+    z-index: -1;
+    opacity: 0.7;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nube10{
+    from{top: 43%; left: 58%; width: 5%;}
+    to{top: 62%; left: 92%; width: 50%;}
+}
+
+.nube11{
+    animation-name: nube11;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nube11{
+    from{top: 45%; left: 44%; width: 10%;}
+    to{top: 63%; left: -5%; width: 50%;}
+}
+
+.nube12{
+    animation-name: nube12;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nube12{
+    from{top: 43%; left: 54%; width: 12%;}
+    to{top: 70%; left: 98%; width: 40%;}
+}
+
+.nube13{
+    animation-name: nube13;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
+
+@keyframes nube13{
+    from{top: 45%; left: 50%; width: 8%;}
+    to{top: 60%; left: 15%; width: 30%;}
+}
+
+.nube14{
+    animation-name: nube14;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nube14{
+    from{top: 47%; left: 54%; width: 8%; height: 10%;}
+    to{top: 85%; left: 90%; width: 50%; height: 30%;}
+}
+
+.nube15{
+    animation-name: nube15;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
+
+@keyframes nube15{
+    from{top: 50%; left: 48%; width: 8%; height: 10%;}
+    to{top: 85%; left: 8%; width: 47%; height: 30%;}
+}

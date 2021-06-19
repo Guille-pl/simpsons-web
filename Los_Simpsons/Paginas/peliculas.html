@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--Defino el tamaño del viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpsons</title>
+    <!--CSS en el que esta la "plantilla de todas las paginas" (header, menu, fondo, footer)-->
+    <link href="../CSS/CSS_Plantilla.css" rel="stylesheet">
+    <!--CSS en el que estan las propiedades de la pagina de pelicula-->
+    <link href="../CSS/CSS_Pelicula.css" rel="stylesheet">
+    <!--CSS externo con el que llamo a los iconos de redes sociales-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Imagen que aparecera en la pestaña de la pagina en el navegador y en los marcadores -->
+    <link rel="icon"  href="../Imagenes/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------HEADER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <header>
+        <a id="a_header" href="inicio.html">
+            <!--este div lo hago unicamente para falsear el fondo del logo, al tratarse este de un png, homer se ve
+            detras del mismo por las partes alpha, por lo que necesito crear un fondo para el logo y asi falsear esa
+            parte alfa del logo-->
+            <div id="fondo_logo"> 
+                <img id="logo_header" src="../Imagenes/logo.png" alt="logo los simpsons">
+            </div>
+        </a>
+        <p id="texto_header">Simpsons @ gmail.com <br> +34901234567</p>
+        <img id="gif_homer" src="../Imagenes/gif_homer.gif" alt="gif de homer">
+    </header>
+    
+    <!---------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------ESTRELLAS---------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--uso la etiqueta section para agrupar los divs que contendran las estrellas del fondo-->
+    <section> 
+        <div id="estrellas1">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+        </div>
+        <div id="estrellas2">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+        </div>
+        <div id="estrellas3">
+            <span class="span1"></span>
+            <span class="span2"></span>
+            <span class="span3"></span>
+            <span class="span4"></span>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------MENUS Y CONTENIDO------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!--Este div lo creo unicamente para que los menus con posicion sticky se mantengan una vez se sobrepasa
+    el 100% del viewport. Si no hiciese este div, los menus sticky desaparecerian tras sobrepasar con el scroll
+    el tamaño de la pantalla-->
+    <div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------MENUS VER Y HOR-------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+        
+        <!--Este div lo creo ya que a los menus no puedo darles position sticky y absolute al mismo tiempo, por 
+        eso meto a ambos en este div, al cual le doy position sticky ( para que siemre aparezca por pantalla), y 
+        a los menus que se encuentran dentro del mismo, les doy position absolute, para que no afecten al resto 
+        de elementos de la pagina-->
+        <div id="menusHyV">
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------MENU HOR (NAVBAR)------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--div en el que se encuentran la lista de los links para recorrer la web y el boton de ajustes-->
+            <div id="menuH">
+                <ul class="ul_menuH">
+                    <li>
+                        <a href="inicio.html" id="a_menuH_activo">
+                            <i class="fa fa-home i_menuH"></i>
+                            <p class="ESP"> Inicio</p>
+                            <p class="EN"> Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="cronologia.html" class="a_menuH">
+                            <i class="fa fa-clock-o i_menuH"></i>
+                            <p class="ESP"> Cronologia</p>
+                            <p class="EN"> Chronology</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="personajes.html" class="a_menuH">
+                            <i class="fa fa-user-o i_menuH"></i>
+                            <p class="ESP"> Personajes</p>
+                            <p class="EN"> Characters</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="curiosidades.html" class="a_menuH">
+                            <i class="fa fa-question-circle-o i_menuH"></i>
+                            <p class="ESP"> Curiosidades</p>
+                            <p class="EN"> Curiosities</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="contacto.html" class="a_menuH">
+                            <i class="fa fa-envelope-o i_menuH"></i>
+                            <p class="ESP"> Contacto</p>
+                            <p class="EN"> Contact</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div id="navAjustes" onclick="ajustes()">
+                    <i class="fa fa-cog"></i>
+                </div>
+
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------AJUSTES----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--creo un div en el que se encontraran las opciones de cambio de idioma y modo noche o dia, el cual
+            tendra position absolute, y a su vez será sticky, al igual que el menu vertical-->
+            <div id="contenedor_Ajustes">
+                <div onclick="modoNyD()">
+                    <p class="ESP">Modo - </p>
+                    <p class="EN">Mode - </p>
+                    <i id="icono_NyD" class="fa fa-sun-o"></i>
+                </div>
+                <img id="bandera1" onclick="cambioIdioma(false)" src="../Imagenes/bandera_esp.png" alt="bandera de españa">
+                <img id="bandera2" onclick="cambioIdioma(true)" src="../Imagenes/bandera_en.png" alt="bandera de inglaterra">
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------MENU VER----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--necesito crearme un div en el que meto tanto el menuV como el boton que lo oculta, para que al
+            darle al boton, no se oculte el boton, si no que cambie de position con respecto al display del menuV-->
+            <div id="contenedor_menuV">
+                <div id="menuV">
+                    <ol class="ESP">
+                        <li><a href="#1">Los Simpsons: La Película</a></li>
+                        <li><a href="#2">Argumento</a></li>
+                        <li><a href="#3">Reparto</a></li>
+                    </ol>
+                    <ol class="EN">
+                        <li><a href="#a">The Simpsons: Movie</a></li>
+                        <li><a href="#b">Plot</a></li>
+                        <li><a href="#c">Cast</a></li>
+                    </ol>
+                </div>
+                <div id="boton_menuV" onclick="menu_vertical()"><i class="fa fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------CONTENIDO----------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+
+        <div id="contenedor">
+            <!--creo el contenedor (caja negra)-->
+            <div class="contenido parrafo">
+                <!--Primer apartado-->
+                <div class="ESP" id="1">
+                    <img src="../Imagenes/pelicula/cartelera.jpg" alt="portada pelicula los simpsons">
+                    <h1>Los Simpsons: La Película</h1>
+                    <p>Los Simpson: la película (título original en inglés: The Simpsons Movie) es
+                        una película animada estadounidense de 2007 basada en la exitosa serie de televisión animada.
+                        <br><br>
+                        El personal de producción de la serie había considerado realizar una adaptación cinematográfica de
+                        Los Simpson desde los comienzos de la serie para poder aumentar la duración del programa y animar secuencias
+                        demasiado complejas, en opinión de los creadores de la película, para una serie de televisión.
+                        Finalmente, los productores Matt Groening, James L. Brooks, Mike Scully, Al Jean y Richard Sakai comenzaron
+                        su desarrollo en 2001. El equipo de redacción estaba compuesto por los productores y además contaba con la
+                        mayoría de los guionistas de las primeras temporadas de la serie: David Mirkin, Mike Reiss, George Meyer,
+                        John Swartzwelder, Jon Vitti, Ian Maxtone-Graham y Matt Selman. El guion fue reescrito más de un centenar
+                        de veces, incluso después de realizada la animación, lo que supuso que muchas escenas fueran suprimidas.
+                        La película fue dirigida por David Silverman y producida por Gracie Films y 20th Century Fox, productores
+                        también de la serie de televisión. Se estrenó los días 26 y 27 de julio de 2007 en Estados Unidos, España,
+                        Centroamérica y Sudamérica, y el 1 de agosto en México. <br><br>
+                        La película parodia dos grandes temas contemporáneos, la religión y el medio ambiente natural. Recaudó 96
+                        millones de dólares en 71 países en su primer fin de semana: 30,7 millones de dólares el día de su estreno
+                        en Estados Unidos, 27,8 millones de dólares en el Reino Unido, 9,7 millones de euros en España y tuvo éxito
+                        en la mayoría de los países de Hispanoamérica, batiendo récords de taquilla en Argentina, Colombia, Chile 
+                        y Uruguay. <br><br>
+                        En general, la película obtuvo una buena crítica en Estados Unidos, aunque algunos medios como la revista
+                        Empire la criticaron duramente. En España, la mayoría de críticas otorgaban una buena nota a la película y
+                        destacaban que aunque no estaba al mismo nivel que los mejores episodios de la serie, contenía algunos
+                        momentos muy divertidos. Asimismo, en ocasiones se criticaba que no era más que un episodio pero de más
+                        duración. En Hispanoamérica, hubo un intento de boicotear la película por parte de los actores de doblaje
+                        que prestaron su voz en las primeras 15 temporadas de la serie porque la empresa que realizaba el doblaje
+                        se comprometió ante la Asociación Nacional de Actores (ANDA) de México a que las voces originales iban a
+                        hacer el trabajo de doblaje de la película, pero incumplieron lo acordado. También entre un sector minoritario
+                        de seguidores de la serie hubo un intento de boicot porque opinaban que el cambio de doblaje iba en detrimento
+                        de la calidad.
+                    </p>
+                </div>
+                <div class="EN" id="a">
+                    <img src="../Imagenes/pelicula/cartelera.jpg" alt="portada pelicula los simpsons">
+                    <h1>The Simpsons: Movie</h1>
+                    <p>The Simpson: the movie (original English title: The Simpsons Movie) is
+                        a 2007 American animated film based on the hit animated television series.
+                        <br><br>
+                        The production staff of the series had considered making a film adaptation of
+                        The Simpsons since the beginning of the series to increase the duration of the program and animate sequences
+                        too complex, in the opinion of the creators of the film, for a television series.
+                        Finally, producers Matt Groening, James L. Brooks, Mike Scully, Al Jean and Richard Sakai started
+                        its development in 2001. The drafting team was composed of producers and also had the
+                        Most screenwriters of the first seasons of the series: David Mirkin, Mike Reiss, George Meyer,
+                        John Swartzwelder, Jon Vitti, Ian Maxtone-Graham and Matt Selman. The script was rewritten more than a hundred
+                        Sometimes, even after the animation was done, which meant that many scenes were suppressed.
+                        The film was directed by David Silverman and produced by Gracie Films and 20th Century Fox, producers
+                        also from the television series. It premiered on July 26 and 27, 2007 in the United States, Spain,
+                        Central and South America, and August 1 in Mexico.<br><br>
+                        The film parodies two great contemporary themes, religion and the natural environment. Raised 96
+                        million dollars in 71 countries on its first weekend: 30.7 million dollars on the day of its premiere
+                        in the United States, 27.8 million dollars in the United Kingdom, 9.7 million euros in Spain and it was successful
+                        in most Latin American countries, breaking box office records in Argentina, Colombia, Chile
+                        and Uruguay. <br><br>
+                        In general, the film got a good review in the United States, although some media such as the magazine
+                        Empire criticized her harshly. In Spain, most critics gave the film a good grade and
+                        stressed that although it was not at the same level as the best episodes of the series, it contained some
+                        very funny moments Also, sometimes it was criticized that it was only an episode but more
+                        duration. In Latin America, there was an attempt to boycott the film by dubbing actors
+                        who lent their voice in the first 15 seasons of the series because the company that dubbed
+                        pledged to the National Association of Actors (ANDA) of Mexico that the original voices were going to
+                        do the dubbing work of the movie, but they failed to comply with what was agreed. Also among a minority sector
+                        of followers of the series there was an attempt to boycott because they thought that the change of dubbing
+                        was detrimental of quality.
+                    </p>
+                </div>
+                <!--Linea divisoria-->
+                <hr>
+                <!--Segundo apartado-->
+                <div class="ESP" id="2">
+                    <h2>Argumento</h2>
+                    <p>Al comienzo de la película, se muestra una caricatura de Itchy & Scratchy, en la cual en un
+                        viaje al espacio Itchy rompe el casco de Scratchy y lo deja morir mientras regresa a la Tierra, es electo 
+                        presidente, pero al ver que Scratchy sigue vivo y con la intención de contar la verdad, Itchy lanza misiles 
+                        nucleares con tal de matar definitivamente a Scratchy. De la nada, Homer Simpson se levanta y llama a todos
+                        en la sala de cine (pues resulta que lo que se muestra primero era una película) unos «pringaos» («crédulos» 
+                        en Hispanoamérica), diciendo «en especial tú» refiriéndose al espectador, y dando inicio a la película. <br><br>
+                        Durante un concierto del grupo de punk rock Green Day en el lago Springfield, todo el grupo muere cuando la
+                        polución erosiona la barca sobre la que están dando el concierto. Durante el funeral, Abraham Simpson tiene
+                        una visión profética en la cual predice el destino inminente de la ciudad, pero solo Marge Simpson lo toma 
+                        en serio. Lisa Simpson y un muchacho irlandés llamado Colin, de quien ella se ha enamorado, celebran un 
+                        seminario con el que pretenden convencer a la ciudad de limpiar el lago. <br><br>
+                        Mientras tanto, Homer adopta a un cerdo de Krusty Burger. Homer almacena el excremento del cerdo en un silo
+                        que se desborda y su esposa, Marge, le obliga a deshacerse de los excrementos de forma segura. Sin embargo, 
+                        Homer se distrae por pensar en rosquillas y vierte el silo en el lago, contaminándolo de nuevo. Momentos más 
+                        tarde, una ardilla salta al lago y sufre una gran mutación. Cerca de allí, Ned Flanders y Bart Simpson 
+                        descubren a la ardilla durante una excursión y la Agencia de Protección Ambiental de los Estados Unidos 
+                        (EPA en inglés) lo captura. <br><br>
+                        Russ Cargill, jefe de la EPA, presenta cinco opciones para solucionar el problema de polución que sufre el 
+                        lago Springfield al presidente Arnold Schwarzenegger, que escoge al azar la acción de incluir Springfield 
+                        dentro de una cúpula gigantesca de cristal. Cuando la policía descubre el silo de Homer en el lago, una 
+                        muchedumbre enfadada de ciudadanos se acerca a la casa de la familia Simpson, pero la familia se fuga por 
+                        una dolina y se refugia en una habitación abandonada. Mientras tanto, la casa de los Simpson se destruye. 
+                        <br><br>
+                        En la habitación, Bart toma una cerveza Duff y Marge lo corre por toda la habitación, hasta que Bart cae 
+                        al suelo prácticamente drogado, y dice "Extraño a Flanders!", debido a que fue él quién los ayudó con la 
+                        dolina. Homer tiene el plan de huir a Alaska, y convence a Marge de ir hasta allá diciéndole: "En todo 
+                        matrimonio, necesito que hagas esto conmigo". Marge acepta pero sin auto, van hasta una feria en el campo, 
+                        donde Homer decide competir para ganar una camioneta en un circuito donde se tiene que dar una vuelta en 
+                        motocicleta para ganar. El organizador de la competencia le da a Homer tres intentos, pero al verlo sufrir 
+                        y caerse durante las tres oportunidades, le da un intento extra ya que le gusta verlo sufrir. Sin embargo, 
+                        Homer recibe un consejo de Lisa sobre que no debe reducir la velocidad, sino que tiene que seguir con la 
+                        misma velocidad al dar la vuelta, pero como a Homer le da miedo, Lisa le insiste y lo hace, ganando la 
+                        camioneta y yéndose. La familia va hasta una estación de servicio, pero hay un problema: hay una foto en 
+                        la que aparece la familia siendo buscada, por lo cual Marge le dice las cosas que quiere que no vaya a 
+                        buscar el vendedor para el lado de la foto, aprovechando que Bart dibuja otros rostros en la foto, y 
+                        cuando el vendedor ve las personas que tenían los rostros que había dibujado Bart, la policía los arresta 
+                        y la familia aprovecha y escapa a Alaska. Allí son muy bien recibidos por el paisajista de la ciudad, que 
+                        de hecho era el único que había, y la familia va hasta una cabaña. <br><br>
+                        En su estancia en la cabaña, Bart aplaude desde una montaña de nieve generando avalanchas, y Homer creyendo
+                        que Bart aplaudía por estar en Alaska, le dice a Lisa que aplauda junto a Bart generando una avalancha enorme 
+                        que se dirige hacia Homer y corre hacia la cabaña pero la avalancha rompe una ventana. <br><br>
+                        Las grietas comienzan a aparecer en la cúpula y Cargill, no queriendo que las noticias de lo que ha hecho se 
+                        extiendan, planifica destruir la ciudad de Springfield. En Alaska, la familia Simpson ve un anuncio para un 
+                        nuevo Gran Cañón que va a ser ubicado sobre el sitio en el que se encuentra Springfield. Marge y los niños 
+                        deciden ir y salvar la ciudad, pero Homer rechaza ayudar a la gente que trató de matarlos. La familia abandona 
+                        a Homer pero son capturados por la EPA y los vuelven a colocar dentro de la cúpula. Después de una visita a 
+                        una misteriosa chamán esquimal, Homer tiene una epifanía y cree que él debe salvar a la ciudad con el fin de 
+                        salvarse a sí mismo. <br><br>
+                        En el momento en que Homer llega a Springfield para hacerlo, un helicóptero baja una bomba suspendida en una 
+                        cuerda por un agujero en la parte superior de la cúpula. Homer sube a la cima de la cúpula y desciende por la 
+                        cuerda, bloqueando las posibilidades de escapatoria de los ciudadanos de Springfield. Homer coge la bomba y 
+                        una motocicleta y, tras reunirse con Bart, suben con la motocicleta por la ladera de la cúpula y Bart lanza 
+                        la bomba por el agujero en la parte superior de esta unos segundos antes de la detonación. La explosión de 
+                        la bomba destruye la cúpula. Cargill amenaza a Homer y Bart con un arma por destruir la cúpula pero son 
+                        salvados por Maggie quien le lanza una piedra, aplastándole el cráneo. Los habitantes de la ciudad alaban 
+                        a Homer, que monta a Marge sobre la motocicleta y conduce hacia la puesta del sol. Los ciudadanos comienzan 
+                        la restauración de Springfield para que todo vuelva a la normalidad. En el final de los créditos se puede ver 
+                        que el jefe Gorgory apresa a Cargill, quien había sobrevivido al golpe.
+                    </p>
+                </div>
+                <div class="EN" id="b">
+                    <h2>Plot</h2>
+                    <p>At the beginning of the film, a cartoon of Itchy & Scratchy is shown, in which in a
+                        trip to space Itchy breaks Scratchy's helmet and lets him die as he returns to Earth, he is elected
+                        president, but seeing that Scratchy is still alive and intending to tell the truth, Itchy launches missiles
+                        nuclear in order to definitely kill Scratchy. Out of nowhere, Homer Simpson gets up and calls everyone
+                        in the movie theater (as it turns out that what was shown first was a movie) some pringaos
+                        in Latin America), saying "especially you" referring to the viewer, and starting the film. <br> <br>
+                        During a concert of the punk rock group Green Day on Lake Springfield, the whole group dies when the
+                        pollution erodes the boat on which they are giving the concert. During the funeral, Abraham Simpson has
+                        a prophetic vision in which he predicts the imminent destiny of the city, but only Marge Simpson takes it
+                        seriously. Lisa Simpson and an Irish boy named Colin, whom she has fallen in love with, celebrate a
+                        seminar with which they intend to convince the city to clean the lake. <br> <br>
+                        Meanwhile, Homer adopts a Krusty pork burger. Homer stores the pig's feces in a silo
+                        He overflows and his wife, Marge, forces him to dispose of excrement safely. Nevertheless,
+                        Homer is distracted by thinking of donuts and pouring the silo into the lake, contaminating him again. Moments more
+                        late, a squirrel jumps into the lake and undergoes a great mutation. Nearby, Ned Flanders and Bart Simpson
+                        they discover the squirrel during an excursion and the United States Environmental Protection Agency
+                        (EPA in English) captures it. <br> <br>
+                        Russ Cargill, head of the EPA, presents five options to solve the pollution problem suffered by the
+                        Springfield Lake to President Arnold Schwarzenegger, who randomly chooses the action of including Springfield
+                        inside a gigantic glass dome. When the police discover Homer's silo on the lake, a
+                        angry crowd of citizens approaches the Simpson family house, but the family runs away by
+                        a dolina and takes refuge in an abandoned room. Meanwhile, the Simpson's house is destroyed. <br> <br>
+                        In the room, Bart drinks a Duff beer and Marge runs it all over the room, until Bart falls
+                        to the ground practically drugged, and says "I miss Flanders!", because it was he who helped them with the
+                        dolina Homero has the plan to flee in Alaska, and convinces Marge to go there saying: "In everything
+                        Marriage, I need you to do this with me. "Marge accepts but without a car, they go to a fair in the country,
+                        where Homer decides to compete to win a truck in a circuit where he has to take a ride in
+                        motorcycle to win. The organizer of the competition gives Homer three attempts, but seeing him suffer
+                        and falling during the three opportunities, he gives an extra attempt since he likes to see him suffer. Nevertheless,
+                        Homer receives advice from Lisa that she should not slow down, but that she has to continue with the
+                        same speed when turning around, but since Homer is scared, Lisa insists and does it, winning the
+                        Pickup truck and leaving. The family goes to a service station, but there is a problem: there is a photo in
+                        the one that appears the family being searched, so Marge tells him the things he wants not to go to
+                        find the seller for the side of the photo, taking advantage of Bart drawing other faces in the photo, and
+                        when the seller sees the people who had the faces Bart had drawn, the police arrest them
+                        and the family takes advantage and escapes to Alaska. There they are very well received by the city 
+                        landscape designer, who in fact he was the only one there, and the family goes to a cabin. <br> <br>
+                        In his stay at the cabin, Bart applauds from a snow mountain generating avalanches, and Homer believing
+                        Bart applauds for being in Alaska, he tells Lisa to clap next to Bart generating a huge avalanche
+                        which goes to Homer and runs to the cabin but the avalanche breaks a window. <br> <br>
+                        The cracks will begin to appear in the dome and Cargill, will not open the news of what they have done
+                        extend, plan to destroy the city of Springfield. In Alaska, the Simpson family sees an ad for a
+                        New Grand Canyon located on the site where Springfield is located. Marge and the children
+                        They decide to go and save the city, but Homer refuses to help the people who tried to kill them. The family leaves
+                        to Homer but they are captured by the EPA and put them back inside the dome. After a visit to
+                        Homer has an epiphany and believes that he must save the city in order to
+                        save himself. <br> <br>
+                        The moment Homer arrives in Springfield to do so, a helicopter drops a bomb suspended in a
+                        rope through a hole in the top of the dome. Homer climbs to the top of the dome and descends the
+                        rope, blocking the chances of escape from the citizens of Springfield. Homer takes the bomb and
+                        a motorcycle and, after meeting with Bart, they ride the motorcycle up the hillside of the dome and Bart throws
+                        Pump through the hole at the top of this a few seconds before detonation. The explosion of
+                        The bomb destroys the dome. Cargill threatens Homer and Bart with a weapon for destroying the dome but they are
+                        saved by Maggie who throws a stone, crushing her skull. The inhabitants of the city praise
+                        Homer, who rides Marge on the motorcycle and drives towards the sunset. Citizens start
+                        Springfield restoration so that everything returns to normal. At the end of the credits you can see
+                        that Chief Gorgory catches Cargill, who had survived the coup.
+                    </p>
+                </div>
+                <hr>
+                <!--Tercer apartado-->
+                <div class="ESP reparto" id="3">
+                    <h2>Reparto</h2>
+                    <table class="tabla">
+                        <tr>
+                          <th>Personaje</th>
+                          <th>Actor de voz original</th>
+                          <th>Actor de doblaje</th>
+                        </tr>
+                        <tr>
+                          <td>Homer</td>
+                          <td>Dan Castellaneta</td>
+                          <td>Víctor Manuel Espinoza</td>
+                        </tr>
+                        <tr>
+                          <td>Marge</td>
+                          <td>Julie Kavner</td>
+                          <td>Marina Huerta</td>
+                        </tr>
+                        <tr>
+                          <td>Bart</td>
+                          <td>Nancy Cartwright</td>
+                          <td>Marina Huerta</td>
+                        </tr>
+                        <tr>
+                          <td>Maggie</td>
+                          <td>Nancy Cartwright</td>
+                          <td>Nallely Solís</td>
+                        </tr>
+                        <tr>
+                          <td>Lisa</td>
+                          <td>Yeardley Smith</td>
+                          <td>Nallely Solís</td>
+                        </tr>
+                        <tr>
+                          <td>Abuelo</td>
+                          <td>Dan Castellaneta</td>
+                          <td>Sebastián Llapur</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="EN reparto" id="c">
+                    <h2>Cast</h2>
+                    <table class="tabla">
+                        <tr>
+                          <th>Character</th>
+                          <th>Original voice actor</th>
+                          <th>Voice actor</th>
+                        </tr>
+                        <tr>
+                          <td>Homer</td>
+                          <td>Dan Castellaneta</td>
+                          <td>Víctor Manuel Espinoza</td>
+                        </tr>
+                        <tr>
+                          <td>Marge</td>
+                          <td>Julie Kavner</td>
+                          <td>Marina Huerta</td>
+                        </tr>
+                        <tr>
+                          <td>Bart</td>
+                          <td>Nancy Cartwright</td>
+                          <td>Marina Huerta</td>
+                        </tr>
+                        <tr>
+                          <td>Maggie</td>
+                          <td>Nancy Cartwright</td>
+                          <td>Nallely Solís</td>
+                        </tr>
+                        <tr>
+                          <td>Lisa</td>
+                          <td>Yeardley Smith</td>
+                          <td>Nallely Solís</td>
+                        </tr>
+                        <tr>
+                          <td>Abuelo</td>
+                          <td>Dan Castellaneta</td>
+                          <td>Sebastián Llapur</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------FOOTER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <img class="imagen_footer" src="../Imagenes/footer.png" alt="pie de pagina">
+        <div id="contenido_footer">
+            <img class="imagen_footer" src="../Imagenes/footer_fade.png" alt="pie de pagina">
+            <ul class="ul_footer">
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.facebook.com/">
+                        <!--Utilizo la etiqueta i para meter los iconos, a los cuales trato como texto-->
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.instagram.com/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://twitter.com/">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.youtube.com/">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="copyright_texto">© 2018 Copyright: Guille & Juanjo</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------SCRIPTS----------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--Script en el que estan las funciones de los elementos de la plantilla-->
+    <script src="../Scripts/Plantilla.js"></script>
+
+</body>
+</html>

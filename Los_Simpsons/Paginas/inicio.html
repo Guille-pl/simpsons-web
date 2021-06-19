@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--Defino el tamaño del viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Simpsons</title>
+    <!--CSS en el que esta la "plantilla de todas las paginas" (header, menu, fondo, footer)-->
+    <link href="../CSS/CSS_Plantilla.css" rel="stylesheet">
+    <!--CSS en el que estan las propiedades de la pagina de inicio-->
+    <link href="../CSS/CSS_Inicio.css" rel="stylesheet">
+    <!--CSS externo con el que llamo a los iconos de redes sociales-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Imagen que aparecera en la pestaña de la pagina en el navegador y en los marcadores -->
+    <link rel="icon"  href="../Imagenes/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------HEADER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <header>
+        <a id="a_header" href="#">
+            <!--este div lo hago unicamente para falsear el fondo del logo, al tratarse este de un png, homer se ve
+            detras del mismo por las partes alpha, por lo que necesito crear un fondo para el logo y asi falsear esa
+            parte alfa del logo-->
+            <div id="fondo_logo"> 
+                <img id="logo_header" src="../Imagenes/logo.png" alt="logo los simpsons">
+            </div>
+        </a>
+        <p id="texto_header">Simpsons @ gmail.com <br> +34901234567</p>
+        <img id="gif_homer" src="../Imagenes/gif_homer.gif" alt="gif de homer">
+    </header>
+    
+    <!---------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------ESTRELLAS---------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--uso la etiqueta section para agrupar los divs que contendran las estrellas del fondo-->
+    <section> 
+        <div id="estrellas1"><span class="span1"></span></div>
+        <div id="estrellas2"><span class="span1"></span></div>
+        <div id="estrellas3"><span class="span1"></span></div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------MENUS Y CONTENIDO------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!--Este div lo creo unicamente para que los menus con posicion sticky se mantengan una vez se sobrepasa
+    el 100% del viewport. Si no hiciese este div, los menus sticky desaparecerian tras sobrepasar con el scroll
+    el tamaño de la pantalla-->
+    <div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------MENUS VER Y HOR-------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+        
+        <!--Este div lo creo ya que a los menus no puedo darles position sticky y absolute al mismo tiempo, por 
+        eso meto a ambos en este div, al cual le doy position sticky ( para que siemre aparezca por pantalla), y 
+        a los menus que se encuentran dentro del mismo, les doy position absolute, para que no afecten al resto 
+        de elementos de la pagina-->
+        <div id="menusHyV">
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------MENU HOR (NAVBAR)------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--div en el que se encuentran la lista de los links para recorrer la web y el boton de ajustes-->
+            <div id="menuH">
+                <ul class="ul_menuH">
+                    <li>
+                        <a href="#" id="a_menuH_activo">
+                            <i class="fa fa-home i_menuH"></i>
+                            <p class="ESP"> Inicio</p>
+                            <p class="EN"> Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="cronologia.html" class="a_menuH">
+                            <i class="fa fa-clock-o i_menuH"></i>
+                            <p class="ESP"> Cronologia</p>
+                            <p class="EN"> Chronology</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="personajes.html" class="a_menuH">
+                            <i class="fa fa-user-o i_menuH"></i>
+                            <p class="ESP"> Personajes</p>
+                            <p class="EN"> Characters</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="curiosidades.html" class="a_menuH">
+                            <i class="fa fa-question-circle-o i_menuH"></i>
+                            <p class="ESP"> Curiosidades</p>
+                            <p class="EN"> Curiosities</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="contacto.html" class="a_menuH">
+                            <i class="fa fa-envelope-o i_menuH"></i>
+                            <p class="ESP"> Contacto</p>
+                            <p class="EN"> Contact</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div id="navAjustes" onclick="ajustes()">
+                    <i class="fa fa-cog"></i>
+                </div>
+
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------AJUSTES----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--creo un div en el que se encontraran las opciones de cambio de idioma y modo noche o dia, el cual
+            tendra position absolute, y a su vez será sticky, al igual que el menu vertical-->
+            <div id="contenedor_Ajustes">
+                <div onclick="modoNyD()">
+                    <p class="ESP">Modo - </p>
+                    <p class="EN">Mode - </p>
+                    <i id="icono_NyD" class="fa fa-sun-o"></i>
+                </div>
+                <img id="bandera1" onclick="cambioIdioma(false)" src="../Imagenes/bandera_esp.png" alt="bandera de españa">
+                <img id="bandera2" onclick="cambioIdioma(true)" src="../Imagenes/bandera_en.png" alt="bandera de inglaterra">
+            </div>
+            
+            <!---------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------MENU VER----------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------->
+
+            <!--necesito crearme un div en el que meto tanto el menuV como el boton que lo oculta, para que al
+            darle al boton, no se oculte el boton, si no que cambie de position con respecto al display del menuV-->
+            <div id="contenedor_menuV">
+                <div id="menuV">
+                    <ol class="ESP">
+                        <li><a href="#1">Pelicula</a></li>
+                        <li><a href="#2">Serie</a></li>
+                        <li><a href="#3">Videojuegos</a></li>
+                    </ol>
+                    <ol class="EN">
+                        <li><a href="#1">Film</a></li>
+                        <li><a href="#2">Serie</a></li>
+                        <li><a href="#3">Videogames</a></li>
+                    </ol>
+                </div>
+                <div id="boton_menuV" onclick="menu_vertical()"><i class="fa fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------CONTENIDO----------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------->
+
+        <div class="contenedor">
+            <!--creo tres contenedores que entre ellos ocupen el 100% de la pantalla-->
+            <div class="cartas">
+                <!--los div "contenido tendran dentro el contenido propio de cada uno"-->
+                <div class="contenido" id="1">
+                    <!--este div lo utilizo para poner la imagen de fondo, y para meter otro div que lo sobrepondra
+                    cuando se active la funcion de hover sobre el elemento-->
+                    <div class="portada1">
+                        <div class="hover">
+                            <img class="ESP" src="https://fontmeme.com/permalink/191228/7a562209f20ea293cee11410333c16ce.png" alt="texto1">
+                            <img class="EN" src="https://fontmeme.com/permalink/200104/c2a346de2155d106f04d73715dd8ee2e.png" alt="texto1">
+                        </div>
+                    </div>
+                    <!--En este div contengo el texto y el boton-->
+                    <div class="textos">
+                        <p class="ESP parrafo">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum 
+                            ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor 
+                            (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló
+                            de tal manera que logró hacer un libro de textos especimen.
+                        </p>
+                        <p class="EN parrafo">Lorem Ipsum is simply the fill text of printing presses and text files. Lorem Ipsum it has been the 
+                            industry standard fill text since 1500, when a printer (N. of the person who is dedicated to the printing press)
+                            unknown used a text gallery and mixed them in such a way that he managed to make a textbook specimen.
+                        </p>
+                        <a href="peliculas.html" class="ESP">Leer Más</a>
+                        <a href="peliculas.html" class="EN">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cartas">
+                <div class="contenido" id="2">
+                    <div class="portada2">
+                        <div class="hover">
+                            <img src="https://fontmeme.com/permalink/191227/c19dbb532464cbf17ffed6211f331e9c.png" alt="texto2">
+                        </div>
+                    </div>
+                    <div class="textos">
+                        <p class="ESP parrafo">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum 
+                            ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor 
+                            (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló
+                            de tal manera que logró hacer un libro de textos especimen.
+                        </p>
+                        <p class="EN parrafo">Lorem Ipsum is simply the fill text of printing presses and text files. Lorem Ipsum it has been the 
+                            industry standard fill text since 1500, when a printer (N. of the person who is dedicated to the printing press)
+                            unknown used a text gallery and mixed them in such a way that he managed to make a textbook specimen.
+                        </p>
+                        <a href="serie.html" class="ESP">Leer Más</a>
+                        <a href="serie.html" class="EN">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cartas">
+                <div class="contenido" id="3">
+                    <div class="portada3">
+                        <div class="hover">
+                            <img class="ESP" src="https://fontmeme.com/permalink/191227/711bdb2b14d6f731a7f74d7698ceac3c.png" alt="texto3">
+                            <img class="EN" src="https://fontmeme.com/permalink/200104/ba49eb2d7ca3c9e9e1e15b5b7c193490.png" alt="texto3">
+                        </div>
+                    </div>
+                    <div class="textos">
+                        <p class="ESP parrafo">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum 
+                            ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor 
+                            (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló
+                            de tal manera que logró hacer un libro de textos especimen.
+                        </p>
+                        <p class="EN parrafo">Lorem Ipsum is simply the fill text of printing presses and text files. Lorem Ipsum it has been the 
+                            industry standard fill text since 1500, when a printer (N. of the person who is dedicated to the printing press)
+                            unknown used a text gallery and mixed them in such a way that he managed to make a textbook specimen.
+                        </p>
+                        <a href="videojuegos.html" class="ESP">Leer Más</a>
+                        <a href="videojuegos.html" class="EN">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------FOOTER------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <img class="imagen_footer" src="../Imagenes/footer.png" alt="pie de pagina">
+        <div id="contenido_footer">
+            <img class="imagen_footer" src="../Imagenes/footer_fade.png" alt="pie de pagina">
+            <ul class="ul_footer">
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.facebook.com/">
+                        <!--Utilizo la etiqueta i para meter los iconos, a los cuales trato como texto-->
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.instagram.com/">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://twitter.com/">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="li_footer">
+                    <a class="a_footer" href="https://www.youtube.com/">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
+            <p id="copyright_texto">© 2018 Copyright: Guille & Juanjo</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------SCRIPTS----------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+    
+    <!--Script en el que estan las funciones de los elementos de la plantilla-->
+    <script src="../Scripts/Plantilla.js"></script>
+
+</body>
+</html>

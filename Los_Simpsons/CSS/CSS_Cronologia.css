@@ -1,0 +1,159 @@
+/*propiedades de la caja negra*/
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 95%;
+    border: 1px solid black;
+    color: white;
+}
+
+.ESP{
+    display: inline-block;
+}
+
+/*oculto todos los elementos en ingles*/
+.EN{
+    display: none;
+}
+
+.contenido h1, .contenido h3, .contenido p{
+    padding: 0;
+}
+
+/*propiedades del titulo h1*/
+.contenido h1{
+    text-align: center;
+    font-size: 50px;
+    margin: 20px 0 70px 0;
+    width: 100%;
+}
+
+/*propiedades de los titulos h2*/
+.contenido h3{
+    /*este margen lo pongo unicamente para separar las cajas con las fechas de los titulos h3*/
+    margin-top: 50px;
+    font-size: 25px;
+    text-align: center;
+}
+
+/*propiedades del div que contiene el ul del timeline*/
+.timeline{
+    margin: 20px auto 0 auto;
+    width: 90%;
+    text-align: justify;
+}
+
+/*propiedades de la linea de tiempo del timeline*/
+.linea{
+    position: absolute;
+    left: 10%;
+    /*ordenador de clase height: 3250px;*/
+    /*ordenador de casa*/ height: 3450px;
+    border: 1px solid white;
+}
+
+/*propiedades del ul*/
+.timeline ul{
+    margin: 0;
+    padding: 0;
+}
+
+/*propiedades de las cajas (li) que contienen el texto y las fechas*/
+.timeline ul li{
+    list-style: none;
+    width: 50%;
+    padding: 0 0 100px 40px;
+    width: 100%;
+}
+
+/*puntos que hay encima de la linea del timeline*/
+.timeline ul li:nth-child(odd):before, 
+.timeline ul li:nth-child(even):before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ffd83d;
+    right: 90%;
+    transform: translate(50%, 25%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffd83d;
+}
+
+/*propiedades de los parrafos que contienen el texto*/
+.timeline ul li p{
+    margin-top: 30px;
+}
+
+/*propiedades de lo divs con las fechas*/
+.timeline ul li:nth-child(odd) .fecha, 
+.timeline ul li:nth-child(even) .fecha{
+    position: absolute;
+    left: 18%;
+    background-color: #ffd83d;
+    color: black;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: 600;
+    transform: translateY(-25%);
+}
+
+/*la explicacion se encuentra en el html*/
+.cajaClear{
+    clear: both;
+}
+
+/*establezco las propiedades del footer que van a ser diferentes para pantallas a partir de los 600px*/
+@media only screen and (min-width: 600px){
+    .contenido{
+        width: 80%;
+    }
+    
+    .contenido h1{
+        margin: 50px 0 100px 0;
+    }
+
+    .contenido h3{
+        margin-top: 0;
+    }
+
+    .linea{
+        left: 50%;
+        /*ordenador de clase height: 2400px;*/
+        /*ordenador de casa*/ height: 2750px;
+    }
+
+    /*propiedades de las cajas (li) impares que contienen el texto y las fechas*/
+    .timeline ul li:nth-child(odd){
+        float: left;
+        clear: both;
+        width: 50%;
+    }
+    
+    /*propiedades de las cajas (li) pares que contienen el texto y las fechas*/
+    .timeline ul li:nth-child(even){
+        float: right;
+        clear: both;
+        width: 50%;
+    }
+
+    .timeline ul li{
+        padding: 0 40px 100px 40px;
+    }
+
+    /*puntos que hay encima de la linea del timeline*/
+    .timeline ul li:nth-child(odd):before, 
+    .timeline ul li:nth-child(even):before {
+        right: 50%;
+    }
+
+    /*propiedades de los divs impares que contienen las fechas*/
+    .timeline ul li:nth-child(odd) .fecha{
+        left: 53%;
+    }
+    
+    /*propiedades de los divs pares que contienen las fechas*/
+    .timeline ul li:nth-child(even) .fecha{
+        left: 39%;
+    }
+}
