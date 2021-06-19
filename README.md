@@ -7,7 +7,7 @@ El propósito de este proyecto fue el de aprender a utilizar lenguajes de front 
 
 ## Comenzando 🚀
 
-Para desplegar el proyecto únicamente es necesario descargar el archivo comprimido del mismo, descomprimirlo y abrir el archivo _index.html_ en un navegador Chrome o similar.
+Para desplegar el proyecto únicamente es necesario descargar la carpeta del proyecto, y abrir el archivo _index.html_ en un navegador Chrome o similar.
 
 
 ## Construido con 🛠️
